@@ -128,6 +128,7 @@ export const ui = {
       invited: 'Testimonio invitado',
       share: 'Comparte tu experiencia',
       submit: 'Enviar un testimonio',
+      loading: 'Cargando testimonios…',
     },
     cv: {
       eyebrow: 'Currículum Vítae',
@@ -278,6 +279,7 @@ export const ui = {
       invited: 'Invited testimonial',
       share: 'Share your experience',
       submit: 'Submit a testimonial',
+      loading: 'Loading testimonials…',
     },
     cv: {
       eyebrow: 'Curriculum Vitae',

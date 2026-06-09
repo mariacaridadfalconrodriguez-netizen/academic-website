@@ -1,0 +1,30 @@
+# ---------------------------------------------------------------------------
+# Conexión con Google Form + Google Sheet para recibir testimonios.
+#
+# Mientras `formUrl` y `csvUrl` estén vacíos, la web solo muestra los
+# testimonios curados de testimonials.yaml y el botón enlaza a la página de
+# contacto. Cuando los rellenes, aparecerá el botón al formulario y se cargarán
+# automáticamente los testimonios APROBADOS de la hoja (sin recompilar la web).
+#
+# Cómo activarlo (ver README, sección "Testimonios"):
+#   1. Crea un Google Form con las preguntas: Nombre, Cargo, Testimonio, Idioma.
+#   2. En la hoja de respuestas vinculada, añade a mano una columna "Aprobado".
+#   3. Publica esa hoja: Archivo > Compartir > Publicar en la web > CSV.
+#   4. Pega aquí el enlace del formulario y el enlace CSV publicado.
+# ---------------------------------------------------------------------------
+
+# Enlace público del formulario (botón "Enviar un testimonio").
+formUrl: ""
+
+# URL CSV publicada de la hoja de respuestas
+# (Archivo > Compartir > Publicar en la web > selecciona la hoja > CSV).
+csvUrl: ""
+
+# Nombres EXACTOS de las cabeceras (primera fila) de la hoja.
+# Ajusta estos valores si nombras las preguntas/columnas de otra forma.
+columns:
+  name: "Nombre"
+  role: "Cargo"
+  quote: "Testimonio"
+  language: "Idioma"   # valores admitidos: es / en / español / english (vacío = ambos)
+  approved: "Aprobado" # se muestra si vale: sí, si, yes, true, x, 1, verdadero

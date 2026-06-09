@@ -84,11 +84,36 @@ with comments. After saving, the site rebuilds automatically when you push.
 
 - **Portrait:** replace both `src/assets/profile.png` (used across the site) and
   `public/profile.png` (used for social-share cards), keeping the same filenames.
-- **CV PDF:** replace `public/cv-maria-caridad-falcon-rodriguez.pdf` (keep the
-  same filename, or update the reference in `src/pages/cv.astro`).
+- **CV PDFs (per language):** place the files in `public/` as
+  `cv-maria-caridad-falcon-rodriguez-es.pdf` and
+  `cv-maria-caridad-falcon-rodriguez-en.pdf`. The CV link, hero/about buttons and
+  the CV page stay hidden until you set `cv.available: true` in the matching
+  `src/data/<lang>/profile.yaml`. Each language serves its own PDF via `cv.file`.
 
-> Placeholder links (Google Scholar, ResearchGate, LinkedIn) use `#`. Replace
-> them with real URLs in `profile.yaml` and `contact.yaml` when available.
+> Profiles without a real URL (e.g. Google Scholar, ResearchGate) keep `#` and
+> are hidden automatically. Add the real URL in `profile.yaml`/`contact.yaml` and
+> they reappear on their own.
+
+### Testimonials via Google Form (optional, no backend)
+
+The Testimonials page always shows the curated entries in
+`src/data/<lang>/testimonials.yaml`. You can also let people submit testimonials
+through a Google Form and have **approved** ones load automatically (no rebuild),
+configured in `src/data/testimonials-source.yaml`:
+
+1. Create a **Google Form** with questions named exactly: `Nombre`, `Cargo`,
+   `Testimonio`, `Idioma` (answer `es` or `en`). Copy its public link.
+2. Open the linked **responses spreadsheet** and add a column named `Aprobado`.
+   Write `sí` (or `x`, `true`, `1`) in that column only for testimonials you want
+   published — everything else stays hidden.
+3. Publish the sheet: **File → Share → Publish to web → select the sheet →
+   CSV**, and copy the generated link.
+4. Paste both links into `src/data/testimonials-source.yaml` (`formUrl` and
+   `csvUrl`). Adjust the `columns:` names if you used different headers.
+
+Once set, the "Submit a testimonial" button opens your form, and approved rows
+appear on the page automatically. While the fields are empty, the button simply
+links to the contact page.
 
 ---
 

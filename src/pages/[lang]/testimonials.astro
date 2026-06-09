@@ -5,6 +5,7 @@ import Icon from '../../components/Icon.astro';
 import { getContent } from '../../i18n/content';
 import { useTranslations, type Lang } from '../../i18n/ui';
 import { getLangStaticPaths, link } from '../../i18n/utils';
+import source from '../../data/testimonials-source.yaml';
 
 export function getStaticPaths() {
   return getLangStaticPaths();
@@ -13,12 +14,17 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const testimonials = getContent(lang).testimonials;
+
+const formUrl = (source.formUrl ?? '').trim();
+const csvUrl = (source.csvUrl ?? '').trim();
+const columns = source.columns ?? {};
+const shareHref = formUrl || link(lang, '/contact');
 ---
 <BaseLayout lang={lang} title={t.testimonials.title} description={testimonials.intro}>
   <PageHeader eyebrow={t.testimonials.eyebrow} title={t.testimonials.title} intro={testimonials.intro} />
 
   <section class="container-page py-16">
-    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+    <div id="testimonials-grid" class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {testimonials.items.map((item) => (
         <figure class="reveal card card-hover flex h-full flex-col p-7">
           <span class="text-accent-300 dark:text-accent-700"><Icon name="quote" class="h-9 w-9" /></span>
@@ -34,12 +40,138 @@ const testimonials = getContent(lang).testimonials;
       ))}
     </div>
 
+    <p id="testimonials-loading" class="mt-8 hidden text-center text-sm text-ink-500 dark:text-ink-400">{t.testimonials.loading}</p>
+
     <div class="reveal mt-12 overflow-hidden rounded-3xl bg-grid border border-ink-200/70 p-8 text-center dark:border-ink-800 sm:p-12">
       <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">{t.testimonials.share}</h2>
       <p class="mx-auto mt-3 max-w-2xl text-ink-600 dark:text-ink-300">{testimonials.invite}</p>
-      <a href={link(lang, '/contact')} class="btn btn-primary mt-6">
+      <a
+        href={shareHref}
+        target={formUrl ? '_blank' : undefined}
+        rel={formUrl ? 'noopener noreferrer' : undefined}
+        class="btn btn-primary mt-6"
+      >
         {t.testimonials.submit} <Icon name="arrow" class="h-4 w-4" />
       </a>
     </div>
   </section>
+
+  <script
+    define:vars={{
+      csvUrl,
+      columns,
+      lang,
+    }}
+  >
+    // Loads APPROVED testimonials from a published Google Sheet (CSV) at runtime
+    // and appends them to the curated list. No backend required.
+    (function () {
+      if (!csvUrl) return;
+
+      const grid = document.getElementById('testimonials-grid');
+      const loading = document.getElementById('testimonials-loading');
+      if (!grid) return;
+
+      const APPROVED = ['si', 'sí', 'yes', 'true', 'verdadero', 'x', '1'];
+      const QUOTE_SVG =
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-9 w-9" aria-hidden="true"><path d="M9 7H6a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v-2H6V9h3V7Zm9 0h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v-2h-2V9h3V7Z"/></svg>';
+
+      function esc(s) {
+        return String(s == null ? '' : s)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
+      }
+
+      function parseCSV(text) {
+        const rows = [];
+        let row = [];
+        let field = '';
+        let inQuotes = false;
+        for (let i = 0; i < text.length; i++) {
+          const c = text[i];
+          if (inQuotes) {
+            if (c === '"') {
+              if (text[i + 1] === '"') { field += '"'; i++; }
+              else inQuotes = false;
+            } else field += c;
+          } else if (c === '"') {
+            inQuotes = true;
+          } else if (c === ',') {
+            row.push(field); field = '';
+          } else if (c === '\n') {
+            row.push(field); field = '';
+            rows.push(row); row = [];
+          } else if (c !== '\r') {
+            field += c;
+          }
+        }
+        row.push(field);
+        rows.push(row);
+        return rows.filter((r) => r.some((cell) => String(cell).trim() !== ''));
+      }
+
+      function normLang(v) {
+        const s = String(v || '').trim().toLowerCase();
+        if (!s) return '';
+        if (s.startsWith('es') || s.startsWith('esp')) return 'es';
+        if (s.startsWith('en') || s.startsWith('ing')) return 'en';
+        return s;
+      }
+
+      function indexFor(headers, label) {
+        if (!label) return -1;
+        const want = String(label).trim().toLowerCase();
+        return headers.findIndex((h) => String(h).trim().toLowerCase() === want);
+      }
+
+      function card(name, role, quote) {
+        const fig = document.createElement('figure');
+        fig.className = 'reveal is-visible card card-hover flex h-full flex-col p-7';
+        fig.innerHTML =
+          '<span class="text-accent-300 dark:text-accent-700">' + QUOTE_SVG + '</span>' +
+          '<blockquote class="mt-4 flex-1 text-base leading-relaxed text-ink-700 dark:text-ink-200">' + esc(quote) + '</blockquote>' +
+          '<figcaption class="mt-6 border-t border-ink-200/70 pt-4 dark:border-ink-800">' +
+          '<p class="font-serif text-base font-semibold text-ink-900 dark:text-white">' + esc(name) + '</p>' +
+          (role ? '<p class="text-sm text-ink-500 dark:text-ink-400">' + esc(role) + '</p>' : '') +
+          '</figcaption>';
+        return fig;
+      }
+
+      if (loading) loading.classList.remove('hidden');
+
+      fetch(csvUrl, { cache: 'no-store' })
+        .then((r) => { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
+        .then((text) => {
+          const rows = parseCSV(text);
+          if (rows.length < 2) return;
+          const headers = rows[0];
+          const iName = indexFor(headers, columns.name);
+          const iRole = indexFor(headers, columns.role);
+          const iQuote = indexFor(headers, columns.quote);
+          const iLang = indexFor(headers, columns.language);
+          const iApproved = indexFor(headers, columns.approved);
+
+          for (let r = 1; r < rows.length; r++) {
+            const cells = rows[r];
+            const approved = iApproved >= 0 ? String(cells[iApproved] || '').trim().toLowerCase() : 'si';
+            if (iApproved >= 0 && APPROVED.indexOf(approved) === -1) continue;
+
+            if (iLang >= 0) {
+              const rowLang = normLang(cells[iLang]);
+              if (rowLang && rowLang !== lang) continue;
+            }
+
+            const quote = iQuote >= 0 ? String(cells[iQuote] || '').trim() : '';
+            if (!quote) continue;
+            const name = iName >= 0 ? String(cells[iName] || '').trim() : '';
+            const role = iRole >= 0 ? String(cells[iRole] || '').trim() : '';
+            grid.appendChild(card(name, role, quote));
+          }
+        })
+        .catch(() => { /* keep curated testimonials if the sheet can't be read */ })
+        .finally(() => { if (loading) loading.classList.add('hidden'); });
+    })();
+  </script>
 </BaseLayout>
