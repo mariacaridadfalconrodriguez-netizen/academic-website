@@ -14,6 +14,14 @@ export default defineConfig({
   site: SITE,
   base: BASE,
   trailingSlash: 'ignore',
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: true,
+      redirectToDefaultLocale: false,
+    },
+  },
   integrations: [
     tailwind({ applyBaseStyles: false }),
     sitemap(),

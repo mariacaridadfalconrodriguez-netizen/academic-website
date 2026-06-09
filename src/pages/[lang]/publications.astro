@@ -1,8 +1,18 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
-import Icon from '../components/Icon.astro';
-import publications from '../data/publications.yaml';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Icon from '../../components/Icon.astro';
+import { getContent } from '../../i18n/content';
+import { useTranslations, type Lang } from '../../i18n/ui';
+import { getLangStaticPaths } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const publications = getContent(lang).publications;
 
 type Pub = {
   title: string;
@@ -19,27 +29,30 @@ const all: Pub[] = [
   ...publications.conferences,
 ] as Pub[];
 
-// Group by year (descending).
 const years = [...new Set(all.map((p) => p.year))].sort((a, b) => b - a);
 const grouped = years.map((y) => ({
   year: y,
-  items: all
-    .filter((p) => p.year === y)
-    .sort((a, b) => a.type.localeCompare(b.type)),
+  items: all.filter((p) => p.year === y).sort((a, b) => a.type.localeCompare(b.type)),
 }));
 
-const types = ['All', 'Journal Article', 'Book Chapter', 'Conference Paper'];
+// Canonical filter keys + translated labels.
+const filters = [
+  { key: 'All', label: t.publications.filterAll },
+  { key: 'Journal Article', label: t.publications.typeJournal },
+  { key: 'Book Chapter', label: t.publications.typeChapter },
+  { key: 'Conference Paper', label: t.publications.typeConference },
+];
 
 const typeStyle: Record<string, string> = {
   'Journal Article': 'bg-accent-100 text-accent-800 dark:bg-accent-500/15 dark:text-accent-200',
   'Book Chapter': 'bg-gold-400/15 text-gold-600 dark:text-gold-400',
   'Conference Paper': 'bg-ink-100 text-ink-600 dark:bg-ink-800 dark:text-ink-300',
 };
+const badge = t.publications.badge as Record<string, string>;
 ---
-<BaseLayout title="Publications" description="Peer-reviewed articles, book chapters and conference papers by Dr. María Caridad Falcón Rodríguez.">
-  <PageHeader eyebrow="Publications" title="Publications" intro="Peer-reviewed journal articles, book chapters and conference contributions on tourism management and sustainable local development." />
+<BaseLayout lang={lang} title={t.publications.title} description={t.publications.intro}>
+  <PageHeader eyebrow={t.publications.eyebrow} title={t.publications.title} intro={t.publications.intro} />
 
-  <!-- Metrics -->
   <section class="container-page py-12">
     <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
       {publications.metrics.map((m) => (
@@ -51,7 +64,6 @@ const typeStyle: Record<string, string> = {
     </div>
   </section>
 
-  <!-- Controls -->
   <section class="container-page">
     <div class="reveal flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <div class="relative w-full sm:max-w-sm">
@@ -61,28 +73,27 @@ const typeStyle: Record<string, string> = {
         <input
           id="pub-search"
           type="search"
-          placeholder="Search by title, venue or keyword…"
+          placeholder={t.publications.searchPlaceholder}
           class="w-full rounded-full border border-ink-200 bg-white/80 py-3 pl-11 pr-4 text-sm text-ink-800 placeholder:text-ink-400 focus:border-accent-400 dark:border-ink-700 dark:bg-ink-900/60 dark:text-ink-100"
-          aria-label="Search publications"
+          aria-label={t.publications.searchPlaceholder}
         />
       </div>
-      <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by type">
-        {types.map((t) => (
+      <div class="flex flex-wrap gap-2" role="group">
+        {filters.map((f) => (
           <button
             type="button"
-            data-type={t}
+            data-type={f.key}
             class="pub-filter rounded-full border border-ink-200 px-4 py-2 text-xs font-semibold text-ink-600 transition hover:border-accent-400 data-[active=true]:border-accent-600 data-[active=true]:bg-accent-700 data-[active=true]:text-white dark:border-ink-700 dark:text-ink-300 dark:data-[active=true]:bg-accent-500 dark:data-[active=true]:text-ink-950"
-            data-active={t === 'All' ? 'true' : 'false'}
+            data-active={f.key === 'All' ? 'true' : 'false'}
           >
-            {t === 'All' ? 'All' : t.replace(' Article', '').replace(' Paper', '').replace('Book ', '')}
+            {f.label}
           </button>
         ))}
       </div>
     </div>
-    <p id="pub-empty" class="mt-8 hidden text-center text-sm text-ink-500 dark:text-ink-400">No publications match your search.</p>
+    <p id="pub-empty" class="mt-8 hidden text-center text-sm text-ink-500 dark:text-ink-400">{t.common.noResults}</p>
   </section>
 
-  <!-- Publication list grouped by year -->
   <section class="container-page py-10">
     <div id="pub-list" class="space-y-12">
       {grouped.map((group) => (
@@ -97,18 +108,18 @@ const typeStyle: Record<string, string> = {
               <article
                 class="pub-item reveal card card-hover p-6"
                 data-type={pub.type}
-                data-search={`${pub.title} ${pub.venue} ${pub.authors ?? ''} ${pub.type}`.toLowerCase()}
+                data-search={`${pub.title} ${pub.venue} ${pub.authors ?? ''}`.toLowerCase()}
               >
                 <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                   <div class="sm:pr-6">
-                    <span class:list={['inline-block rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-wide', typeStyle[pub.type]]}>{pub.type}</span>
+                    <span class:list={['inline-block rounded-full px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-wide', typeStyle[pub.type]]}>{badge[pub.type]}</span>
                     <h3 class="mt-3 font-serif text-lg font-semibold leading-snug text-ink-900 dark:text-white">{pub.title}</h3>
                     {pub.authors && <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{pub.authors}</p>}
                     <p class="mt-1 text-sm italic text-ink-500 dark:text-ink-400">{pub.venue}</p>
                   </div>
                   {pub.url && (
                     <a href={pub.url} target="_blank" rel="noopener noreferrer" class="inline-flex shrink-0 items-center gap-1 self-start rounded-full border border-ink-200 px-4 py-2 text-sm font-semibold text-accent-700 transition hover:border-accent-400 dark:border-ink-700 dark:text-accent-300">
-                      View <Icon name="external" class="h-4 w-4" />
+                      {t.common.view} <Icon name="external" class="h-4 w-4" />
                     </a>
                   )}
                 </div>
@@ -121,39 +132,39 @@ const typeStyle: Record<string, string> = {
   </section>
 
   <script is:inline>
-  (() => {
-    const search = document.getElementById('pub-search');
-    const filters = Array.from(document.querySelectorAll('.pub-filter'));
-    const items = Array.from(document.querySelectorAll('.pub-item'));
-    const groups = Array.from(document.querySelectorAll('.pub-year-group'));
-    const empty = document.getElementById('pub-empty');
-    let activeType = 'All';
+    (() => {
+      const search = document.getElementById('pub-search');
+      const filters = Array.from(document.querySelectorAll('.pub-filter'));
+      const items = Array.from(document.querySelectorAll('.pub-item'));
+      const groups = Array.from(document.querySelectorAll('.pub-year-group'));
+      const empty = document.getElementById('pub-empty');
+      let activeType = 'All';
 
-    function apply() {
-      const q = (search?.value || '').trim().toLowerCase();
-      let visible = 0;
-      items.forEach((item) => {
-        const matchesType = activeType === 'All' || item.getAttribute('data-type') === activeType;
-        const matchesText = !q || (item.getAttribute('data-search') || '').includes(q);
-        const show = matchesType && matchesText;
-        item.classList.toggle('hidden', !show);
-        if (show) visible++;
-      });
-      groups.forEach((group) => {
-        const anyVisible = group.querySelectorAll('.pub-item:not(.hidden)').length > 0;
-        group.classList.toggle('hidden', !anyVisible);
-      });
-      if (empty) empty.classList.toggle('hidden', visible !== 0);
-    }
+      function apply() {
+        const q = (search?.value || '').trim().toLowerCase();
+        let visible = 0;
+        items.forEach((item) => {
+          const matchesType = activeType === 'All' || item.getAttribute('data-type') === activeType;
+          const matchesText = !q || (item.getAttribute('data-search') || '').includes(q);
+          const show = matchesType && matchesText;
+          item.classList.toggle('hidden', !show);
+          if (show) visible++;
+        });
+        groups.forEach((group) => {
+          const anyVisible = group.querySelectorAll('.pub-item:not(.hidden)').length > 0;
+          group.classList.toggle('hidden', !anyVisible);
+        });
+        if (empty) empty.classList.toggle('hidden', visible !== 0);
+      }
 
-    search?.addEventListener('input', apply);
-    filters.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        activeType = btn.getAttribute('data-type') || 'All';
-        filters.forEach((b) => b.setAttribute('data-active', String(b === btn)));
-        apply();
+      search?.addEventListener('input', apply);
+      filters.forEach((btn) => {
+        btn.addEventListener('click', () => {
+          activeType = btn.getAttribute('data-type') || 'All';
+          filters.forEach((b) => b.setAttribute('data-active', String(b === btn)));
+          apply();
+        });
       });
-    });
-  })();
+    })();
   </script>
 </BaseLayout>

@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------------------
+# Cargos académicos y profesionales (más reciente primero).
+# ---------------------------------------------------------------------------
+- role: "Miembro"
+  organization: "Red Iberoamericana de Turismo"
+  start: "Actualidad"
+  end: ""
+  current: true
+  description: >-
+    Miembro activa de la Red Iberoamericana de Turismo, contribuyendo al
+    intercambio de conocimiento e investigación transfronteriza sobre turismo y
+    desarrollo.
+- role: "Coordinadora del Máster en Gestión Turística"
+  organization: "Universidad de Ciego de Ávila, Cuba"
+  start: "2007"
+  end: "2023"
+  current: false
+  description: >-
+    Dirigió el programa de posgrado en Gestión Turística, supervisando el plan
+    de estudios, la admisión y la dirección de tesis a lo largo de más de quince
+    promociones de estudiantes.
+- role: "Vicedecana de Posgrado e Investigación"
+  organization: "Universidad de Ciego de Ávila, Cuba"
+  start: "2010"
+  end: "2022"
+  current: false
+  description: >-
+    Lideró la estrategia de educación de posgrado e investigación de la Facultad
+    de Ciencias Económicas y Empresariales, fortaleciendo la producción
+    científica y la formación de posgrado.
+- role: "Profesora Titular"
+  organization: "Universidad de Ciego de Ávila, Cuba"
+  start: "1986"
+  end: "2023"
+  current: false
+  description: >-
+    Impartió docencia e investigó en economía y gestión turística en la máxima
+    categoría académica, formando a estudiantes de grado y posgrado.

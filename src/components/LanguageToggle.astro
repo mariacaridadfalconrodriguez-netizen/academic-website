@@ -1,0 +1,28 @@
+---
+import { languages, type Lang } from '../i18n/ui';
+import { switchLangPath } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const pathname = Astro.url.pathname;
+const codes = Object.keys(languages) as Lang[];
+---
+<div class="inline-flex items-center rounded-full border border-ink-200 p-0.5 text-xs font-semibold dark:border-ink-700" role="group" aria-label="Language">
+  {codes.map((code) => (
+    <a
+      href={switchLangPath(pathname, lang, code)}
+      hreflang={code}
+      class:list={[
+        'rounded-full px-2.5 py-1 uppercase transition',
+        code === lang
+          ? 'bg-accent-700 text-white dark:bg-accent-500 dark:text-ink-950'
+          : 'text-ink-500 hover:text-accent-700 dark:text-ink-400 dark:hover:text-accent-300',
+      ]}
+      aria-current={code === lang ? 'true' : undefined}
+    >
+      {code}
+    </a>
+  ))}
+</div>

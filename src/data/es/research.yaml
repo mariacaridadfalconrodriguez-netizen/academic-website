@@ -1,0 +1,76 @@
+# ---------------------------------------------------------------------------
+# Áreas de investigación, colaboraciones e idiomas (español).
+# ---------------------------------------------------------------------------
+intro: >-
+  Mi programa de investigación desarrolla modelos y metodologías para la gestión
+  integrada de los destinos turísticos, entendiendo el turismo como una palanca
+  estratégica para el desarrollo local y regional sostenible. Combino el análisis
+  económico con la gobernanza de destinos, la calidad de los servicios y la
+  sostenibilidad ambiental para apoyar decisiones basadas en evidencia por parte
+  de instituciones y comunidades.
+
+areas:
+  - title: "Gestión integrada del turismo"
+    icon: "compass"
+    description: >-
+      Modelos para gobernar los destinos turísticos como sistemas integrados,
+      alineando instituciones públicas, empresas y comunidades en torno a
+      objetivos de desarrollo compartidos.
+  - title: "Desarrollo local y regional sostenible"
+    icon: "leaf"
+    description: >-
+      La relación entre turismo y desarrollo local, incluyendo los impactos en
+      la comunidad, la participación de los actores y la contribución del turismo
+      a las economías municipales y regionales.
+  - title: "Gobernanza y calidad de destinos"
+    icon: "shield"
+    description: >-
+      Gestión integrada de la calidad de los servicios y destinos turísticos,
+      con metodologías para evaluar la percepción del servicio, la hospitalidad
+      y la evaluación integrada de los destinos.
+  - title: "Capacidad de carga y sostenibilidad"
+    icon: "balance"
+    description: >-
+      Posicionamiento de mercado frente a la capacidad de carga del turista,
+      gestión ambiental y diseño de productos turísticos sostenibles en
+      contextos costeros y culturales.
+  - title: "Turismo patrimonial y cultural"
+    icon: "landmark"
+    description: >-
+      Turismo cultural y patrimonial, interpretación del patrimonio y diseño de
+      rutas y productos culturales que protegen y ponen en valor la identidad
+      local.
+  - title: "Vínculos entre turismo y agricultura"
+    icon: "sprout"
+    description: >-
+      Fortalecimiento de la relación entre turismo y agricultura, incluyendo las
+      cadenas de suministro local para el sector hotelero y el desarrollo del
+      turismo rural.
+
+fieldContexts:
+  - "Destino Jardines del Rey (Cuba)"
+  - "Polos turísticos de Cayo Coco y Cayo Guillermo"
+  - "Municipio de Ciego de Ávila"
+  - "Destinos costeros de sol y playa"
+
+collaborations:
+  - institution: "Universidad de Ciego de Ávila"
+    country: "Cuba"
+    note: "Institución de origen durante tres décadas de investigación y formación de posgrado."
+  - institution: "Universidad de Camagüey"
+    country: "Cuba"
+    note: "Formación doctoral y de maestría; investigación colaborativa sobre desarrollo local."
+  - institution: "Universidad Autónoma Chapingo"
+    country: "México"
+    note: "Estancia de investigación (2012) sobre turismo y desarrollo rural."
+  - institution: "Universidad Católica de Guayaquil"
+    country: "Ecuador"
+    note: "Estancia de investigación invitada y dirección de posgrado."
+  - institution: "Red Iberoamericana de Turismo"
+    country: "Internacional"
+    note: "Intercambio transfronterizo de conocimiento sobre turismo y desarrollo."
+
+languages:
+  - { name: "Español", level: "Nativo" }
+  - { name: "Ruso", level: "Intermedio (A2)" }
+  - { name: "Inglés", level: "Básico (A1)" }

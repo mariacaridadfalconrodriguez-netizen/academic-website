@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------
+# Testimonios (español). La página está preparada para recibir futuros
+# testimonios de estudiantes y colegas. Deja `placeholder: true` en los espacios
+# invitados que aún no se han completado.
+# ---------------------------------------------------------------------------
+intro: >-
+  Reflexiones de estudiantes, personas tuteladas y colegas. Este espacio está
+  abierto para recibir nuevos testimonios de antiguos estudiantes y
+  colaboradores de investigación.
+
+invite: >-
+  ¿Fuiste dirigida o tutelada por la Dra. Falcón Rodríguez? Las aportaciones son
+  muy bienvenidas: ponte en contacto para compartir tu testimonio.
+
+items:
+  - quote: >-
+      Su dirección combinaba el rigor metodológico con un cuidado genuino,
+      ayudándome a convertir un problema práctico de nuestro destino en una tesis
+      defendible y de impacto.
+    name: "Antiguo estudiante de maestría"
+    role: "Máster en Gestión Turística"
+    placeholder: true
+  - quote: >-
+      Una mentora generosa y una académica exigente: elevó los estándares de
+      investigación de todo nuestro programa.
+    name: "Colega"
+    role: "Facultad de Ciencias Económicas y Empresariales"
+    placeholder: true
+  - quote: >-
+      Su visión del turismo como motor del desarrollo local sostenible marcó la
+      forma en que abordo mi propia práctica profesional.
+    name: "Antiguo doctorando"
+    role: "Doctorado en Ciencias Económicas"
+    placeholder: true

@@ -1,0 +1,40 @@
+# ---------------------------------------------------------------------------
+# Identidad, insignias de perfil y enlaces académicos externos (español).
+# ---------------------------------------------------------------------------
+name: "María Caridad Falcón Rodríguez"
+honorific: "Dra."
+title: "Profesora Titular de Economía"
+subtitle: "Gestión Turística · Desarrollo Local Sostenible"
+photo: "/profile.png"
+location: "Valencia, España"
+email: "mariacaridadfalconrodriguez@gmail.com"
+phone: "+34 602 625 101"
+
+heroIntro: >-
+  Economista y Doctora en Ciencias Económicas con más de tres décadas de
+  investigación y docencia universitaria dedicadas a la gestión integrada del
+  turismo, la gobernanza de destinos y el desarrollo local sostenible.
+
+# Insignias de perfil / identidades académicas externas.
+# Sustituye las URL provisionales (#) cuando los perfiles estén disponibles.
+links:
+  - id: "orcid"
+    label: "ORCID"
+    handle: "0000-0001-6741-6500"
+    url: "https://orcid.org/0000-0001-6741-6500"
+  - id: "scholar"
+    label: "Google Scholar"
+    handle: "Perfil"
+    url: "#"
+  - id: "researchgate"
+    label: "ResearchGate"
+    handle: "Perfil"
+    url: "#"
+  - id: "linkedin"
+    label: "LinkedIn"
+    handle: "Perfil"
+    url: "#"
+  - id: "email"
+    label: "Correo"
+    handle: "mariacaridadfalconrodriguez@gmail.com"
+    url: "mailto:mariacaridadfalconrodriguez@gmail.com"

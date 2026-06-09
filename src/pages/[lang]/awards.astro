@@ -1,11 +1,21 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
-import Icon from '../components/Icon.astro';
-import awards from '../data/awards.yaml';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Icon from '../../components/Icon.astro';
+import { getContent } from '../../i18n/content';
+import { useTranslations, type Lang } from '../../i18n/ui';
+import { getLangStaticPaths } from '../../i18n/utils';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const t = useTranslations(lang);
+const awards = getContent(lang).awards;
 ---
-<BaseLayout title="Awards" description={awards.intro}>
-  <PageHeader eyebrow="Distinctions" title="Awards & milestones" intro={awards.intro} />
+<BaseLayout lang={lang} title={t.awards.title} description={awards.intro}>
+  <PageHeader eyebrow={t.awards.eyebrow} title={t.awards.title} intro={awards.intro} />
 
   <section class="container-page py-16">
     <ol class="relative mx-auto max-w-3xl border-l-2 border-ink-200 pl-8 dark:border-ink-800">
@@ -17,7 +27,7 @@ import awards from '../data/awards.yaml';
           <div class="card card-hover p-6">
             <div class="flex flex-wrap items-center gap-3">
               <span class="font-serif text-2xl font-semibold text-accent-700 dark:text-accent-300">{item.year}</span>
-              {item.placeholder && <span class="chip">To be confirmed</span>}
+              {item.placeholder && <span class="chip">{t.common.toBeConfirmed}</span>}
             </div>
             <h3 class="mt-2 font-serif text-xl font-semibold text-ink-900 dark:text-white">{item.title}</h3>
             <p class="text-sm font-medium text-accent-600 dark:text-accent-400">{item.organization}</p>
@@ -28,14 +38,11 @@ import awards from '../data/awards.yaml';
     </ol>
   </section>
 
-  <!-- Distinctions placeholder -->
   <section class="container-page pb-16">
     <div class="reveal mx-auto max-w-3xl card border-dashed p-8">
-      <p class="eyebrow">Further distinctions</p>
-      <h2 class="mt-3 font-serif text-xl font-semibold text-ink-900 dark:text-white">Additional honours</h2>
-      <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">
-        This section is ready to showcase further honours, editorial roles and recognitions as they are confirmed.
-      </p>
+      <p class="eyebrow">{t.awards.further}</p>
+      <h2 class="mt-3 font-serif text-xl font-semibold text-ink-900 dark:text-white">{t.awards.additional}</h2>
+      <p class="mt-2 text-sm text-ink-500 dark:text-ink-400">{t.awards.additionalText}</p>
       <ul class="mt-5 space-y-2">
         {awards.distinctions.map((d) => (
           <li class="flex items-start gap-3 text-sm text-ink-500 dark:text-ink-400">

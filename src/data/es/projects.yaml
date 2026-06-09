@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# Proyectos de investigación competitivos y estancias (español).
+# ---------------------------------------------------------------------------
+intro: >-
+  Proyectos de investigación con financiación competitiva sobre el turismo como
+  factor de desarrollo local sostenible, complementados con estancias de
+  investigación internacionales en México y Ecuador.
+
+projects:
+  - title: "Modelo de Gestión Integrada del Turismo como factor de desarrollo local en los municipios de Cuba — Fase II"
+    institution: "Universidad de Ciego de Ávila, Cuba"
+    period: "2020–2024"
+    role: "Investigadora"
+    program: "Programa de Desarrollo Local de Cuba"
+    description: >-
+      Segunda fase que consolida y amplía el modelo de gestión integrada del
+      turismo como motor del desarrollo municipal en toda Cuba.
+  - title: "Modelo de Gestión Integrada del Turismo como factor de desarrollo local en los municipios de Cuba — Fase I"
+    institution: "Universidad de Ciego de Ávila, Cuba"
+    period: "2016–2020"
+    role: "Investigadora principal"
+    program: "Programa de Desarrollo Local de Cuba"
+    description: >-
+      Diseñó y dirigió la primera fase desarrollando un modelo integrado que
+      vincula la gobernanza del turismo con los resultados de desarrollo local
+      en los municipios cubanos.
+  - title: "Desarrollo turístico en condiciones de litoral costero"
+    institution: "Universidad de Ciego de Ávila, Cuba"
+    period: "2015–2018"
+    role: "Investigadora (equipo de 5)"
+    program: ""
+    description: >-
+      Investigó estrategias de desarrollo turístico sostenible específicas para
+      entornos de litoral costero en la región de Ciego de Ávila.
+
+stays:
+  - institution: "Universidad Autónoma Chapingo"
+    location: "México"
+    period: "Sep–Dic 2012"
+    duration: "4 meses"
+    capacity: "Investigadora contratada"
+  - institution: "Universidad Católica de Guayaquil"
+    location: "Guayaquil, Ecuador"
+    period: "—"
+    duration: "1 mes"
+    capacity: "Investigadora invitada"

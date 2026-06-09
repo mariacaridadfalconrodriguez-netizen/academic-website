@@ -4,8 +4,10 @@ A fast, accessible and elegant academic personal website built with
 [Astro](https://astro.build) and [Tailwind CSS](https://tailwindcss.com), and
 deployed for free on **GitHub Pages**.
 
-All content lives in simple **YAML files** under `src/data/`, so the site can be
-updated without touching any code.
+The site is **bilingual (Spanish / English)** with a language switcher. Spanish
+is the default language. All content lives in simple **YAML files** under
+`src/data/<lang>/` (`es` and `en`), so the site can be updated without touching
+any code. Interface strings (buttons, section titles) live in `src/i18n/ui.ts`.
 
 ---
 
@@ -54,8 +56,13 @@ updated without touching any code.
 
 ## 📝 Editing content (no code required)
 
-Open any file in **`src/data/`** and edit the text. Each file is documented with
-comments. After saving, the site rebuilds automatically when you push.
+Open the file for the language you want in **`src/data/es/`** or
+**`src/data/en/`** and edit the text. The two folders mirror each other, so to
+update both languages edit the matching file in each. Each file is documented
+with comments. After saving, the site rebuilds automatically when you push.
+
+> To change the default language, edit `defaultLang` in `src/i18n/ui.ts` and
+> `defaultLocale` in `astro.config.mjs`.
 
 | File | Controls |
 | --- | --- |

@@ -1,0 +1,53 @@
+# ---------------------------------------------------------------------------
+# Biografía y datos clave (español).
+# ---------------------------------------------------------------------------
+bioShort: >-
+  La Dra. María Caridad Falcón Rodríguez es Profesora Titular de Economía y
+  Doctora en Ciencias Económicas cuya investigación impulsa la gestión turística
+  integrada y sostenible como motor del desarrollo local y regional. A lo largo
+  de más de treinta años en la educación superior ha dirigido proyectos de
+  investigación competitivos, coordinado programas de posgrado y dirigido
+  decenas de tesis de maestría y doctorado.
+
+bioLong:
+  - >-
+    María Caridad Falcón Rodríguez es economista y Doctora en Ciencias
+    Económicas cuya trayectoria une la investigación académica rigurosa con la
+    gobernanza práctica de los destinos turísticos. Se licenció en Economía en
+    la Universidad Estatal Lomonósov de Moscú, cursó un Máster en Desarrollo
+    Regional y obtuvo el doctorado en Ciencias Económicas en la Universidad de
+    Camagüey, Cuba.
+  - >-
+    Durante más de tres décadas ejerció en la Universidad de Ciego de Ávila,
+    donde alcanzó la categoría de Profesora Titular y desempeñó cargos de
+    dirección como Vicedecana de Posgrado e Investigación y Coordinadora del
+    Máster en Gestión Turística. Desde estas responsabilidades configuró planes
+    de estudio de posgrado, fortaleció la cultura institucional de investigación
+    y formó a una nueva generación de académicos y profesionales.
+  - >-
+    Su trabajo científico se centra en la gestión integrada de los destinos
+    turísticos y su contribución al desarrollo local sostenible. Ha dirigido
+    programas de investigación de financiación nacional sobre el turismo como
+    factor de desarrollo local en los municipios cubanos, con especial atención
+    al destino Jardines del Rey, la gobernanza de destinos de sol y playa, la
+    capacidad de carga, la calidad de los servicios y la relación entre turismo
+    y agricultura.
+  - >-
+    La Dra. Falcón Rodríguez es miembro de la Red Iberoamericana de Turismo y ha
+    realizado estancias de investigación en México y Ecuador. Actualmente
+    residente en Valencia, España, continúa colaborando en investigación y
+    formación de posgrado en turismo, sostenibilidad y economía regional.
+
+facts:
+  - { label: "Años en la educación superior", value: "35+" }
+  - { label: "Tesis dirigidas", value: "36" }
+  - { label: "Publicaciones revisadas", value: "19+" }
+  - { label: "Proyectos competitivos dirigidos", value: "3" }
+
+focus:
+  - "Gestión integrada del turismo"
+  - "Desarrollo local y regional sostenible"
+  - "Gobernanza de destinos"
+  - "Calidad de los servicios turísticos"
+  - "Capacidad de carga turística"
+  - "Turismo patrimonial y cultural"

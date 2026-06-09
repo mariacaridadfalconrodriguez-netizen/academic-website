@@ -1,0 +1,75 @@
+# ---------------------------------------------------------------------------
+# Docencia (español). `level` se mantiene canónico (Graduate / Undergraduate)
+# y se traduce al mostrarse.
+# ---------------------------------------------------------------------------
+intro: >-
+  Durante más de tres décadas he impartido docencia en programas de grado y
+  posgrado de economía, empresa y gestión turística en la Universidad de Ciego
+  de Ávila, diseñando asignaturas que conectan la teoría económica con la
+  gestión práctica de los destinos turísticos.
+
+courses:
+  - name: "Seminario de Tesis"
+    program: "Máster en Contabilidad Gerencial"
+    level: "Graduate"
+    years: "2010–2023"
+  - name: "Economía para Empresarios"
+    program: "Máster en Administración"
+    level: "Graduate"
+    years: "2018–2023"
+  - name: "Gestión del Patrimonio"
+    program: "Máster en Gestión Turística"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Innovación de Productos Turísticos"
+    program: "Máster en Gestión Turística"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Planificación Turística"
+    program: "Máster en Gestión Turística"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Desarrollo Local y Regional del Turismo"
+    program: "Máster en Gestión Turística"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Gestión Integrada de Destinos Turísticos"
+    program: "Licenciatura en Turismo"
+    level: "Undergraduate"
+    years: "2007–2023"
+  - name: "Gestión de la Calidad"
+    program: "Licenciatura en Turismo"
+    level: "Undergraduate"
+    years: "2007–2023"
+  - name: "Gestión del Patrimonio"
+    program: "Licenciatura en Turismo"
+    level: "Undergraduate"
+    years: "2007–2023"
+  - name: "Macroeconomía"
+    program: "Licenciatura en Contabilidad y Finanzas"
+    level: "Undergraduate"
+    years: "2006–2023"
+  - name: "Microeconomía"
+    program: "Licenciatura en Contabilidad y Finanzas"
+    level: "Undergraduate"
+    years: "2005–2023"
+  - name: "Teorías Económicas"
+    program: "Licenciatura en Contabilidad y Finanzas"
+    level: "Undergraduate"
+    years: "1986–2004"
+
+mentoring:
+  - title: "Dirección orientada a la investigación"
+    description: >-
+      Acompaño a los estudiantes para que planteen preguntas de investigación
+      aplicada ancladas en destinos y empresas turísticas reales, desde la
+      definición del problema hasta la defensa.
+  - title: "Rigor metodológico"
+    description: >-
+      Énfasis en una metodología sólida: procedimientos de evaluación integrada,
+      valoración de la calidad del servicio y toma de decisiones basada en
+      evidencia.
+  - title: "Impacto profesional"
+    description: >-
+      Tesis diseñadas para ofrecer estrategias accionables a hoteles, destinos e
+      instituciones locales en la región de Jardines del Rey y más allá.

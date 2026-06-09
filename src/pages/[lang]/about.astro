@@ -1,26 +1,32 @@
 ---
 import { Image } from 'astro:assets';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
-import SocialLinks from '../components/SocialLinks.astro';
-import Icon from '../components/Icon.astro';
-import { withBase } from '../lib/url';
-import about from '../data/about.yaml';
-import education from '../data/education.yaml';
-import positions from '../data/positions.yaml';
-import research from '../data/research.yaml';
-import profile from '../data/profile.yaml';
-import portrait from '../assets/profile.png';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import SocialLinks from '../../components/SocialLinks.astro';
+import Icon from '../../components/Icon.astro';
+import { getContent } from '../../i18n/content';
+import { useTranslations, type Lang } from '../../i18n/ui';
+import { getLangStaticPaths, link } from '../../i18n/utils';
+import portrait from '../../assets/profile.png';
+
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const c = getContent(lang);
+const t = useTranslations(lang);
+const { profile, about, education, positions, research } = c;
 ---
-<BaseLayout title="About" description={about.bioShort}>
-  <PageHeader eyebrow="About" title="Biography" intro="Economist, doctor of economic sciences and educator dedicated to sustainable tourism and local development." />
+<BaseLayout lang={lang} title={t.about.title} description={about.bioShort}>
+  <PageHeader eyebrow={t.about.eyebrow} title={t.about.title} intro={t.about.intro} />
 
   <section class="container-page py-16">
     <div class="grid gap-12 lg:grid-cols-[0.9fr_1.4fr]">
       <!-- Sidebar -->
       <aside class="reveal space-y-8 lg:sticky lg:top-24 lg:self-start">
         <div class="overflow-hidden rounded-3xl border border-ink-200/70 shadow-xl shadow-ink-900/10 dark:border-ink-700">
-          <Image src={portrait} alt={`Portrait of ${profile.name}`} widths={[320, 480]} sizes="(max-width: 1024px) 60vw, 22rem" class="w-full object-cover" />
+          <Image src={portrait} alt={profile.name} widths={[320, 480]} sizes="(max-width: 1024px) 60vw, 22rem" class="w-full object-cover" />
         </div>
         <div class="card p-6">
           <p class="font-serif text-lg font-semibold text-ink-900 dark:text-white">{profile.honorific} {profile.name}</p>
@@ -29,7 +35,7 @@ import portrait from '../assets/profile.png';
             <li class="flex items-center gap-3 text-ink-600 dark:text-ink-300"><Icon name="pin" class="h-4 w-4 text-accent-600 dark:text-accent-400" /> {profile.location}</li>
             <li class="flex items-center gap-3 text-ink-600 dark:text-ink-300"><Icon name="mail" class="h-4 w-4 text-accent-600 dark:text-accent-400" /> <a href={`mailto:${profile.email}`} class="hover:text-accent-700 dark:hover:text-accent-300 break-all">{profile.email}</a></li>
           </ul>
-          <div class="mt-6"><SocialLinks variant="compact" /></div>
+          <div class="mt-6"><SocialLinks lang={lang} variant="compact" /></div>
         </div>
       </aside>
 
@@ -39,17 +45,15 @@ import portrait from '../assets/profile.png';
           {about.bioLong.map((para) => <p>{para}</p>)}
         </div>
 
-        <!-- Focus areas -->
         <div class="reveal">
-          <p class="eyebrow">Areas of expertise</p>
+          <p class="eyebrow">{t.about.expertise}</p>
           <div class="mt-4 flex flex-wrap gap-2">
             {about.focus.map((f) => <span class="chip">{f}</span>)}
           </div>
         </div>
 
-        <!-- Education -->
         <div class="reveal">
-          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Education</h2>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">{t.about.education}</h2>
           <div class="mt-6 space-y-4">
             {education.map((ed) => (
               <div class="card flex items-start gap-4 p-5">
@@ -64,9 +68,8 @@ import portrait from '../assets/profile.png';
           </div>
         </div>
 
-        <!-- Career timeline -->
         <div class="reveal">
-          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Career</h2>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">{t.about.career}</h2>
           <ol class="mt-6 relative border-l border-ink-200 pl-6 dark:border-ink-700">
             {positions.map((pos) => (
               <li class="relative pb-8 last:pb-0">
@@ -80,22 +83,21 @@ import portrait from '../assets/profile.png';
           </ol>
         </div>
 
-        <!-- Languages -->
         <div class="reveal">
-          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Languages</h2>
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">{t.about.languages}</h2>
           <div class="mt-6 grid gap-4 sm:grid-cols-3">
-            {research.languages.map((lang) => (
+            {research.languages.map((lng) => (
               <div class="card p-5 text-center">
-                <p class="flex items-center justify-center gap-2 font-serif text-lg font-semibold text-ink-900 dark:text-white"><Icon name="globe" class="h-4 w-4 text-accent-600 dark:text-accent-400" /> {lang.name}</p>
-                <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{lang.level}</p>
+                <p class="flex items-center justify-center gap-2 font-serif text-lg font-semibold text-ink-900 dark:text-white"><Icon name="globe" class="h-4 w-4 text-accent-600 dark:text-accent-400" /> {lng.name}</p>
+                <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{lng.level}</p>
               </div>
             ))}
           </div>
         </div>
 
         <div class="reveal flex flex-wrap gap-3 pt-2">
-          <a href={withBase('/cv')} class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> Download CV</a>
-          <a href={withBase('/research')} class="btn btn-ghost">Explore research</a>
+          <a href={link(lang, '/cv')} class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> {t.about.downloadCV}</a>
+          <a href={link(lang, '/research')} class="btn btn-ghost">{t.about.exploreResearch}</a>
         </div>
       </div>
     </div>

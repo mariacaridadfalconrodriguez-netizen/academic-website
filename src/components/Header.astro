@@ -1,13 +1,28 @@
 ---
-import site from '../data/site.yaml';
-import { withBase, isActive } from '../lib/url';
+import { getContent } from '../i18n/content';
+import { link } from '../i18n/utils';
+import type { Lang } from '../i18n/ui';
 import ThemeToggle from './ThemeToggle.astro';
+import LanguageToggle from './LanguageToggle.astro';
 
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const site = getContent(lang).site;
 const pathname = Astro.url.pathname;
+
+const norm = (s: string) => s.replace(/\/$/, '') || '/';
+function isActive(href: string): boolean {
+  const target = norm(link(lang, href));
+  const current = norm(pathname);
+  if (href === '/') return current === target;
+  return current === target || current.startsWith(`${target}/`);
+}
 ---
 <header class="sticky top-0 z-50 border-b border-ink-200/60 bg-ink-50/80 backdrop-blur-md dark:border-ink-800/70 dark:bg-ink-950/70">
   <div class="container-page flex h-16 items-center justify-between gap-4">
-    <a href={withBase('/')} class="group flex items-center gap-3">
+    <a href={link(lang, '/')} class="group flex items-center gap-3">
       <span class="flex h-9 w-9 items-center justify-center rounded-full bg-accent-700 font-serif text-sm font-semibold text-white dark:bg-accent-500 dark:text-ink-950">
         MF
       </span>
@@ -16,17 +31,17 @@ const pathname = Astro.url.pathname;
       </span>
     </a>
 
-    <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+    <nav class="hidden items-center gap-1 xl:flex" aria-label="Primary">
       {site.nav.map((item) => (
         <a
-          href={withBase(item.href)}
+          href={link(lang, item.href)}
           class:list={[
             'rounded-full px-3 py-2 text-sm font-medium transition',
-            isActive(item.href, pathname)
+            isActive(item.href)
               ? 'bg-accent-100 text-accent-800 dark:bg-accent-500/15 dark:text-accent-200'
               : 'text-ink-600 hover:bg-ink-100 hover:text-ink-900 dark:text-ink-300 dark:hover:bg-ink-800/60 dark:hover:text-white',
           ]}
-          aria-current={isActive(item.href, pathname) ? 'page' : undefined}
+          aria-current={isActive(item.href) ? 'page' : undefined}
         >
           {item.label}
         </a>
@@ -34,12 +49,13 @@ const pathname = Astro.url.pathname;
     </nav>
 
     <div class="flex items-center gap-2">
+      <LanguageToggle lang={lang} />
       <ThemeToggle />
       <button
         id="menu-toggle"
         type="button"
-        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 lg:hidden dark:border-ink-700 dark:text-ink-300"
-        aria-label="Open menu"
+        class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ink-200 text-ink-600 xl:hidden dark:border-ink-700 dark:text-ink-300"
+        aria-label="Menu"
         aria-expanded="false"
         aria-controls="mobile-nav"
       >
@@ -48,14 +64,14 @@ const pathname = Astro.url.pathname;
     </div>
   </div>
 
-  <nav id="mobile-nav" class="hidden border-t border-ink-200/60 bg-ink-50/95 px-5 pb-4 pt-2 lg:hidden dark:border-ink-800/70 dark:bg-ink-950/95" aria-label="Mobile">
+  <nav id="mobile-nav" class="hidden border-t border-ink-200/60 bg-ink-50/95 px-5 pb-4 pt-2 xl:hidden dark:border-ink-800/70 dark:bg-ink-950/95" aria-label="Mobile">
     <div class="grid grid-cols-2 gap-1">
       {site.nav.map((item) => (
         <a
-          href={withBase(item.href)}
+          href={link(lang, item.href)}
           class:list={[
             'rounded-lg px-3 py-2.5 text-sm font-medium transition',
-            isActive(item.href, pathname)
+            isActive(item.href)
               ? 'bg-accent-100 text-accent-800 dark:bg-accent-500/15 dark:text-accent-200'
               : 'text-ink-700 hover:bg-ink-100 dark:text-ink-300 dark:hover:bg-ink-800/60',
           ]}

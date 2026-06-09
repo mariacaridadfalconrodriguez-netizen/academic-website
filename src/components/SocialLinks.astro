@@ -1,12 +1,15 @@
 ---
-import profile from '../data/profile.yaml';
+import { getContent } from '../i18n/content';
+import type { Lang } from '../i18n/ui';
 import Icon from './Icon.astro';
 
 interface Props {
+  lang: Lang;
   variant?: 'badges' | 'compact';
   class?: string;
 }
-const { variant = 'compact', class: className = '' } = Astro.props;
+const { lang, variant = 'compact', class: className = '' } = Astro.props;
+const links = getContent(lang).profile.links;
 
 const iconFor: Record<string, string> = {
   orcid: 'orcid',
@@ -18,7 +21,7 @@ const iconFor: Record<string, string> = {
 ---
 {variant === 'badges' ? (
   <div class:list={['flex flex-wrap gap-3', className]}>
-    {profile.links.map((link) => (
+    {links.map((link) => (
       <a
         href={link.url}
         target={link.url.startsWith('http') ? '_blank' : undefined}
@@ -37,7 +40,7 @@ const iconFor: Record<string, string> = {
   </div>
 ) : (
   <div class:list={['flex flex-wrap items-center gap-2', className]}>
-    {profile.links.map((link) => (
+    {links.map((link) => (
       <a
         href={link.url}
         target={link.url.startsWith('http') ? '_blank' : undefined}

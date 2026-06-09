@@ -1,0 +1,16 @@
+# ---------------------------------------------------------------------------
+# Datos y canales de contacto (español).
+# ---------------------------------------------------------------------------
+intro: >-
+  Doy la bienvenida a consultas sobre colaboración en investigación, dirección
+  de tesis de posgrado, invitaciones a conferencias y alianzas académicas.
+email: "mariacaridadfalconrodriguez@gmail.com"
+phone: "+34 602 625 101"
+location: "Valencia, España"
+
+channels:
+  - { label: "Correo", value: "mariacaridadfalconrodriguez@gmail.com", url: "mailto:mariacaridadfalconrodriguez@gmail.com", icon: "mail" }
+  - { label: "ORCID", value: "0000-0001-6741-6500", url: "https://orcid.org/0000-0001-6741-6500", icon: "orcid" }
+  - { label: "Google Scholar", value: "Ver perfil", url: "#", icon: "scholar" }
+  - { label: "ResearchGate", value: "Ver perfil", url: "#", icon: "researchgate" }
+  - { label: "LinkedIn", value: "Ver perfil", url: "#", icon: "linkedin" }

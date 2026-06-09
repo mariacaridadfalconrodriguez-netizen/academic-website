@@ -1,18 +1,26 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageHeader from '../components/PageHeader.astro';
-import Icon from '../components/Icon.astro';
-import { withBase } from '../lib/url';
-import research from '../data/research.yaml';
-import projects from '../data/projects.yaml';
----
-<BaseLayout title="Research" description={research.intro}>
-  <PageHeader eyebrow="Research" title="Research programme" intro={research.intro} />
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import Icon from '../../components/Icon.astro';
+import { getContent } from '../../i18n/content';
+import { useTranslations, type Lang } from '../../i18n/ui';
+import { getLangStaticPaths, link } from '../../i18n/utils';
 
-  <!-- Research areas -->
+export function getStaticPaths() {
+  return getLangStaticPaths();
+}
+
+const lang = Astro.params.lang as Lang;
+const c = getContent(lang);
+const t = useTranslations(lang);
+const { research, projects } = c;
+---
+<BaseLayout lang={lang} title={t.research.title} description={research.intro}>
+  <PageHeader eyebrow={t.research.eyebrow} title={t.research.title} intro={research.intro} />
+
   <section class="container-page py-16">
-    <p class="eyebrow reveal">Research areas</p>
-    <h2 class="reveal mt-3 font-serif text-3xl font-semibold text-ink-900 dark:text-white">Lines of enquiry</h2>
+    <p class="eyebrow reveal">{t.research.areas}</p>
+    <h2 class="reveal mt-3 font-serif text-3xl font-semibold text-ink-900 dark:text-white">{t.research.linesOfEnquiry}</h2>
     <div class="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
       {research.areas.map((area) => (
         <article class="reveal card card-hover p-7">
@@ -26,11 +34,10 @@ import projects from '../data/projects.yaml';
     </div>
   </section>
 
-  <!-- Field contexts (research visualization band) -->
   <section class="container-page py-8">
     <div class="reveal overflow-hidden rounded-3xl border border-ink-200/70 bg-grid p-8 dark:border-ink-800 sm:p-12">
-      <p class="eyebrow">Field contexts</p>
-      <h2 class="mt-3 font-serif text-2xl font-semibold text-ink-900 dark:text-white">Where the research takes place</h2>
+      <p class="eyebrow">{t.research.fieldContexts}</p>
+      <h2 class="mt-3 font-serif text-2xl font-semibold text-ink-900 dark:text-white">{t.research.whereResearch}</h2>
       <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {research.fieldContexts.map((ctx, i) => (
           <div class="card flex items-center gap-3 p-5">
@@ -42,15 +49,14 @@ import projects from '../data/projects.yaml';
     </div>
   </section>
 
-  <!-- Projects preview -->
   <section class="container-page py-16">
     <div class="mb-10 flex items-end justify-between gap-4">
       <div class="reveal">
-        <p class="eyebrow">Funded research</p>
-        <h2 class="mt-3 font-serif text-3xl font-semibold text-ink-900 dark:text-white">Selected projects</h2>
+        <p class="eyebrow">{t.research.fundedResearch}</p>
+        <h2 class="mt-3 font-serif text-3xl font-semibold text-ink-900 dark:text-white">{t.research.selectedProjects}</h2>
       </div>
-      <a href={withBase('/projects')} class="reveal hidden items-center gap-2 text-sm font-semibold text-accent-700 hover:text-accent-900 dark:text-accent-300 sm:inline-flex">
-        All projects <Icon name="arrow" class="h-4 w-4" />
+      <a href={link(lang, '/projects')} class="reveal hidden items-center gap-2 text-sm font-semibold text-accent-700 hover:text-accent-900 dark:text-accent-300 sm:inline-flex">
+        {t.research.allProjects} <Icon name="arrow" class="h-4 w-4" />
       </a>
     </div>
     <div class="grid gap-6 lg:grid-cols-3">
@@ -68,21 +74,20 @@ import projects from '../data/projects.yaml';
     </div>
   </section>
 
-  <!-- Collaborations -->
   <section class="container-page py-16">
-    <p class="eyebrow reveal">Network</p>
-    <h2 class="reveal mt-3 font-serif text-3xl font-semibold text-ink-900 dark:text-white">Collaborations</h2>
+    <p class="eyebrow reveal">{t.research.network}</p>
+    <h2 class="reveal mt-3 font-serif text-3xl font-semibold text-ink-900 dark:text-white">{t.research.collaborations}</h2>
     <div class="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-      {research.collaborations.map((c) => (
+      {research.collaborations.map((col) => (
         <article class="reveal card p-6">
           <div class="flex items-center gap-3">
             <span class="flex h-10 w-10 items-center justify-center rounded-xl bg-accent-100 text-accent-700 dark:bg-accent-500/15 dark:text-accent-300"><Icon name="users" class="h-5 w-5" /></span>
             <div>
-              <p class="font-serif text-base font-semibold text-ink-900 dark:text-white">{c.institution}</p>
-              <p class="text-xs uppercase tracking-wide text-accent-600 dark:text-accent-400">{c.country}</p>
+              <p class="font-serif text-base font-semibold text-ink-900 dark:text-white">{col.institution}</p>
+              <p class="text-xs uppercase tracking-wide text-accent-600 dark:text-accent-400">{col.country}</p>
             </div>
           </div>
-          <p class="mt-4 text-sm leading-relaxed text-ink-600 dark:text-ink-300">{c.note}</p>
+          <p class="mt-4 text-sm leading-relaxed text-ink-600 dark:text-ink-300">{col.note}</p>
         </article>
       ))}
     </div>

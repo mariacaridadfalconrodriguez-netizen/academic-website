@@ -1,32 +1,42 @@
 ---
 import '../styles/global.css';
-import site from '../data/site.yaml';
+import { getContent } from '../i18n/content';
+import { useTranslations, type Lang } from '../i18n/ui';
 import { withBase } from '../lib/url';
+import { switchLangPath, langCodes } from '../i18n/utils';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 
 interface Props {
+  lang: Lang;
   title?: string;
   description?: string;
   image?: string;
 }
 
-const {
-  title,
-  description = site.description,
-  image = site.ogImage,
-} = Astro.props;
+const { lang, title, description, image } = Astro.props;
+const site = getContent(lang).site;
+const t = useTranslations(lang);
+
+const desc = description ?? site.description;
+const img = image ?? site.ogImage;
 
 const pageTitle = title ? `${title} · ${site.title}` : `${site.title} · ${site.role}`;
-const canonical = new URL(Astro.url.pathname, Astro.site ?? Astro.url.origin).href;
-const ogImage = new URL(withBase(image), Astro.site ?? Astro.url.origin).href;
+const origin = Astro.site ?? new URL(Astro.url.origin);
+const canonical = new URL(Astro.url.pathname, origin).href;
+const ogImage = new URL(withBase(img), origin).href;
+
+const alternates = langCodes.map((code) => ({
+  code,
+  href: new URL(switchLangPath(Astro.url.pathname, lang, code), origin).href,
+}));
 
 const personSchema = {
   '@context': 'https://schema.org',
   '@type': 'Person',
-  name: site.title.replace('Dr. ', ''),
-  honorificPrefix: 'Dr.',
-  jobTitle: 'Full Professor of Economics',
+  name: site.title.replace(/^Dr[a]?\.\s/, ''),
+  honorificPrefix: lang === 'es' ? 'Dra.' : 'Dr.',
+  jobTitle: site.role,
   description: site.description,
   url: canonical,
   image: ogImage,
@@ -35,7 +45,7 @@ const personSchema = {
 };
 ---
 <!doctype html>
-<html lang={site.locale} class="scroll-smooth">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -43,25 +53,30 @@ const personSchema = {
     <meta name="generator" content={Astro.generator} />
 
     <title>{pageTitle}</title>
-    <meta name="description" content={description} />
+    <meta name="description" content={desc} />
     <meta name="keywords" content={site.keywords.join(', ')} />
     <meta name="author" content={site.title} />
     <link rel="canonical" href={canonical} />
     <link rel="sitemap" href={withBase('/sitemap-index.xml')} />
 
+    {alternates.map((alt) => (
+      <link rel="alternate" hreflang={alt.code} href={alt.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={alternates[0].href} />
+
     <!-- Open Graph -->
     <meta property="og:type" content="profile" />
     <meta property="og:site_name" content={site.title} />
     <meta property="og:title" content={pageTitle} />
-    <meta property="og:description" content={description} />
+    <meta property="og:description" content={desc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_US'} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
-    <meta name="twitter:description" content={description} />
+    <meta name="twitter:description" content={desc} />
     <meta name="twitter:image" content={ogImage} />
 
     <!-- Fonts -->
@@ -91,12 +106,12 @@ const personSchema = {
     </script>
   </head>
   <body class="min-h-screen">
-    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent-700 focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
-    <Header />
+    <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-accent-700 focus:px-4 focus:py-2 focus:text-white">{t.common.skipToContent}</a>
+    <Header lang={lang} />
     <main id="main">
       <slot />
     </main>
-    <Footer />
+    <Footer lang={lang} />
 
     <!-- Scroll reveal -->
     <script is:inline>

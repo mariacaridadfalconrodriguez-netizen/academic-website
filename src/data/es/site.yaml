@@ -1,0 +1,32 @@
+# ---------------------------------------------------------------------------
+# Configuración global del sitio (español).
+# ---------------------------------------------------------------------------
+title: "Dra. María Caridad Falcón Rodríguez"
+shortName: "M. C. Falcón Rodríguez"
+role: "Profesora Titular de Economía · Turismo y Desarrollo Local"
+tagline: "La gestión integrada del turismo como motor del desarrollo local sostenible."
+description: >-
+  Página académica de la Dra. María Caridad Falcón Rodríguez, Profesora Titular
+  de Economía especializada en gestión integrada del turismo, gobernanza
+  sostenible de destinos y desarrollo local y regional.
+keywords:
+  - gestión turística
+  - turismo sostenible
+  - desarrollo local
+  - economía regional
+  - gobernanza de destinos
+  - María Caridad Falcón Rodríguez
+locale: "es"
+ogImage: "/profile.png"
+
+nav:
+  - { label: "Inicio", href: "/" }
+  - { label: "Sobre mí", href: "/about" }
+  - { label: "Investigación", href: "/research" }
+  - { label: "Publicaciones", href: "/publications" }
+  - { label: "Docencia", href: "/teaching" }
+  - { label: "Proyectos", href: "/projects" }
+  - { label: "Reconocimientos", href: "/awards" }
+  - { label: "Testimonios", href: "/testimonials" }
+  - { label: "CV", href: "/cv" }
+  - { label: "Contacto", href: "/contact" }

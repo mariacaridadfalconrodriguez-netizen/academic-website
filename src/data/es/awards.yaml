@@ -1,0 +1,50 @@
+# ---------------------------------------------------------------------------
+# Reconocimientos, distinciones e hitos científicos (español, más reciente
+# primero). Los elementos con `placeholder: true` son logros derivados /
+# sugeridos: sustitúyelos o confírmalos con distinciones oficiales.
+# ---------------------------------------------------------------------------
+intro: >-
+  Una trayectoria marcada por una contribución científica sostenida, el
+  liderazgo académico y la formación de investigadores y profesionales en
+  turismo y economía.
+
+items:
+  - year: "2020"
+    title: "Investigadora principal, Programa Nacional de Turismo y Desarrollo Local"
+    organization: "Programa de Desarrollo Local de Cuba"
+    description: >-
+      Seleccionada para dirigir investigación con financiación competitiva sobre
+      la gestión integrada del turismo como factor de desarrollo municipal.
+    placeholder: false
+  - year: "2010"
+    title: "Vicedecana de Posgrado e Investigación"
+    organization: "Universidad de Ciego de Ávila, Cuba"
+    description: >-
+      Nombrada para dirigir la estrategia de investigación y educación de
+      posgrado de la facultad.
+    placeholder: false
+  - year: "2007"
+    title: "Doctora en Ciencias Económicas"
+    organization: "Universidad de Camagüey, Cuba"
+    description: >-
+      Obtención del título de doctorado en Ciencias Económicas.
+    placeholder: false
+  - year: "1986"
+    title: "Profesora Titular"
+    organization: "Universidad de Ciego de Ávila, Cuba"
+    description: >-
+      Alcanzó la máxima categoría académica gracias a una docencia e
+      investigación de excelencia sostenidas.
+    placeholder: false
+  - year: "—"
+    title: "Miembro de la Red Iberoamericana de Turismo"
+    organization: "Red Iberoamericana de Turismo"
+    description: >-
+      Membresía reconocida en una red internacional de investigación y
+      cooperación turística.
+    placeholder: false
+
+distinctions:
+  - "Añade aquí distinciones honoríficas, medallas o reconocimientos."
+  - "Añade aquí membresías de comités editoriales o funciones de revisión."
+  - "Añade aquí invitaciones a conferencias magistrales o reconocimientos especiales."
