@@ -1,0 +1,85 @@
+# ---------------------------------------------------------------------------
+# Teaching: courses delivered and mentoring philosophy.
+# Thesis supervision lives in supervision.yaml.
+# ---------------------------------------------------------------------------
+intro: >-
+  Over more than three decades I have taught across undergraduate and graduate
+  programmes in economics, business and tourism management at the University of
+  Ciego de Ávila, designing courses that connect economic theory with the
+  practical governance of tourism destinations.
+
+courses:
+  - name: "Thesis Seminar"
+    original: "Seminario de Tesis"
+    program: "M.Sc. in Management Accounting"
+    level: "Graduate"
+    years: "2010–2023"
+  - name: "Economics for Entrepreneurs"
+    original: "Economía para Empresarios"
+    program: "M.Sc. in Administration"
+    level: "Graduate"
+    years: "2018–2023"
+  - name: "Heritage Management"
+    original: "Gestión del Patrimonio"
+    program: "M.Sc. in Tourism Management"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Innovation of Tourism Products"
+    original: "Innovación de Productos Turísticos"
+    program: "M.Sc. in Tourism Management"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Tourism Planning"
+    original: "Planificación Turística"
+    program: "M.Sc. in Tourism Management"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Local & Regional Tourism Development"
+    original: "Desarrollo Local y Regional del Turismo"
+    program: "M.Sc. in Tourism Management"
+    level: "Graduate"
+    years: "2009–2023"
+  - name: "Integrated Management of Tourism Destinations"
+    original: "Gestión Integrada de Destinos Turísticos"
+    program: "B.Sc. in Tourism"
+    level: "Undergraduate"
+    years: "2007–2023"
+  - name: "Quality Management"
+    original: "Gestión de la Calidad"
+    program: "B.Sc. in Tourism"
+    level: "Undergraduate"
+    years: "2007–2023"
+  - name: "Heritage Management"
+    original: "Gestión del Patrimonio"
+    program: "B.Sc. in Tourism"
+    level: "Undergraduate"
+    years: "2007–2023"
+  - name: "Macroeconomics"
+    original: "Macroeconomía"
+    program: "B.Sc. in Accounting & Finance"
+    level: "Undergraduate"
+    years: "2006–2023"
+  - name: "Microeconomics"
+    original: "Microeconomía"
+    program: "B.Sc. in Accounting & Finance"
+    level: "Undergraduate"
+    years: "2005–2023"
+  - name: "Economic Theories"
+    original: "Teorías Económicas"
+    program: "B.Sc. in Accounting & Finance"
+    level: "Undergraduate"
+    years: "1986–2004"
+
+mentoring:
+  - title: "Research-led supervision"
+    description: >-
+      Guiding students to frame applied research questions grounded in real
+      tourism destinations and enterprises, from problem definition to defence.
+  - title: "Methodological rigour"
+    description: >-
+      Emphasis on sound methodology — integrated evaluation procedures, service
+      quality assessment and evidence-based decision-making.
+  - title: "Professional impact"
+    description: >-
+      Theses designed to deliver actionable strategies for hotels, destinations
+      and local institutions across the Jardines del Rey region and beyond.

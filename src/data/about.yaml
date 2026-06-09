@@ -1,0 +1,58 @@
+# ---------------------------------------------------------------------------
+# Biography and key facts for the Home and About pages.
+# ---------------------------------------------------------------------------
+
+# Short biography (Home page summary).
+bioShort: >-
+  Dr. María Caridad Falcón Rodríguez is a Full Professor of Economics and a
+  Doctor of Economic Sciences whose research advances integrated, sustainable
+  tourism management as an engine of local and regional development. Across
+  more than thirty years in higher education she has led competitive research
+  projects, coordinated graduate programmes and supervised dozens of master's
+  and doctoral theses.
+
+# Full biography (About page). Each list item is a paragraph.
+bioLong:
+  - >-
+    María Caridad Falcón Rodríguez is an economist and Doctor of Economic
+    Sciences whose career bridges rigorous academic research and the practical
+    governance of tourism destinations. She earned her degree in Economics at
+    the Lomonosov Moscow State University, completed a Master in Regional
+    Development and obtained her doctorate in Economic Sciences at the
+    University of Camagüey, Cuba.
+  - >-
+    For more than three decades she served at the University of Ciego de Ávila,
+    where she became a Full Professor (Profesora Titular) and held leadership
+    roles as Vice Dean for Postgraduate Studies and Research and as Coordinator
+    of the Master in Tourism Management. In these positions she shaped graduate
+    curricula, strengthened institutional research culture and mentored a new
+    generation of scholars and professionals.
+  - >-
+    Her scholarly work focuses on the integrated management of tourism
+    destinations and its contribution to sustainable local development. She has
+    led nationally funded research programmes on tourism as a factor of local
+    development in Cuban municipalities, with particular attention to the
+    Jardines del Rey destination, sun-and-beach destination governance, carrying
+    capacity, service quality and the relationship between tourism and
+    agriculture.
+  - >-
+    Dr. Falcón Rodríguez is a member of the Ibero-American Tourism Network and
+    has carried out research stays in Mexico and Ecuador. Now based in Valencia,
+    Spain, she continues to collaborate on research and graduate education in
+    tourism, sustainability and regional economics.
+
+# Key facts surfaced as a compact summary band.
+facts:
+  - { label: "Years in higher education", value: "35+" }
+  - { label: "Theses supervised", value: "36" }
+  - { label: "Peer-reviewed outputs", value: "19+" }
+  - { label: "Competitive projects led", value: "3" }
+
+# Research focus chips.
+focus:
+  - "Integrated tourism management"
+  - "Sustainable local & regional development"
+  - "Destination governance"
+  - "Service quality in tourism"
+  - "Tourism carrying capacity"
+  - "Heritage & cultural tourism"

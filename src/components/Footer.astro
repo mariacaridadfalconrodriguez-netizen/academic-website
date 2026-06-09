@@ -1,0 +1,45 @@
+---
+import site from '../data/site.yaml';
+import profile from '../data/profile.yaml';
+import { withBase } from '../lib/url';
+import SocialLinks from './SocialLinks.astro';
+
+const year = new Date().getFullYear();
+---
+<footer class="mt-24 border-t border-ink-200/60 bg-white/50 dark:border-ink-800/70 dark:bg-ink-900/30">
+  <div class="container-page py-12">
+    <div class="grid gap-10 md:grid-cols-3">
+      <div>
+        <p class="font-serif text-lg font-semibold text-ink-900 dark:text-white">{site.title}</p>
+        <p class="mt-2 max-w-xs text-sm text-ink-500 dark:text-ink-400">{site.role}</p>
+        <div class="mt-5">
+          <SocialLinks variant="compact" />
+        </div>
+      </div>
+
+      <div>
+        <p class="eyebrow">Explore</p>
+        <ul class="mt-4 grid grid-cols-2 gap-y-2 text-sm">
+          {site.nav.map((item) => (
+            <li>
+              <a href={withBase(item.href)} class="text-ink-600 transition hover:text-accent-700 dark:text-ink-300 dark:hover:text-accent-300">{item.label}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <p class="eyebrow">Contact</p>
+        <ul class="mt-4 space-y-2 text-sm text-ink-600 dark:text-ink-300">
+          <li><a href={`mailto:${profile.email}`} class="transition hover:text-accent-700 dark:hover:text-accent-300">{profile.email}</a></li>
+          <li>{profile.location}</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 flex flex-col items-center justify-between gap-3 border-t border-ink-200/60 pt-6 text-xs text-ink-500 dark:border-ink-800/70 dark:text-ink-400 sm:flex-row">
+      <p>&copy; {year} {profile.name}. All rights reserved.</p>
+      <p>Built with Astro &amp; Tailwind CSS · Hosted on GitHub Pages</p>
+    </div>
+  </div>
+</footer>

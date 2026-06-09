@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------------------
+# Testimonials. The page is prepared to receive future student and colleague
+# testimonials. Add new entries below; leave `placeholder: true` for invited
+# slots that have not yet been filled.
+# ---------------------------------------------------------------------------
+intro: >-
+  Reflections from students, mentees and colleagues. This space is open to
+  receive new testimonials from former students and research collaborators.
+
+invite: >-
+  Were you supervised or mentored by Dr. Falcón Rodríguez? Contributions are
+  warmly welcomed — please get in touch to share your testimonial.
+
+items:
+  - quote: >-
+      Her supervision combined methodological rigour with genuine care, helping
+      me turn a practical problem in our destination into a defensible,
+      impactful thesis.
+    name: "Former Master's student"
+    role: "M.Sc. in Tourism Management"
+    placeholder: true
+  - quote: >-
+      A generous mentor and a demanding scholar — she raised the research
+      standards of our entire programme.
+    name: "Colleague"
+    role: "Faculty of Economic & Business Sciences"
+    placeholder: true
+  - quote: >-
+      Her vision of tourism as a driver of sustainable local development shaped
+      how I approach my own professional practice.
+    name: "Former doctoral candidate"
+    role: "Ph.D. in Economic Sciences"
+    placeholder: true

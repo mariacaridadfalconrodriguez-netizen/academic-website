@@ -1,0 +1,41 @@
+# ---------------------------------------------------------------------------
+# Identity, profile badges and external academic links.
+# ---------------------------------------------------------------------------
+name: "María Caridad Falcón Rodríguez"
+honorific: "Dr."
+title: "Full Professor of Economics"
+subtitle: "Tourism Management · Sustainable Local Development"
+photo: "/profile.png"
+location: "Valencia, Spain"
+email: "mariacaridadfalconrodriguez@gmail.com"
+phone: "+34 602 625 101"
+
+# Short string shown under the hero portrait.
+heroIntro: >-
+  Economist and Doctor of Economic Sciences with more than three decades of
+  university research and teaching dedicated to integrated tourism management,
+  destination governance and sustainable local development.
+
+# Profile badges / external scholarly identities.
+# Replace the placeholder URLs (#) as the profiles become available.
+links:
+  - id: "orcid"
+    label: "ORCID"
+    handle: "0000-0001-6741-6500"
+    url: "https://orcid.org/0000-0001-6741-6500"
+  - id: "scholar"
+    label: "Google Scholar"
+    handle: "Profile"
+    url: "#"
+  - id: "researchgate"
+    label: "ResearchGate"
+    handle: "Profile"
+    url: "#"
+  - id: "linkedin"
+    label: "LinkedIn"
+    handle: "Profile"
+    url: "#"
+  - id: "email"
+    label: "Email"
+    handle: "mariacaridadfalconrodriguez@gmail.com"
+    url: "mailto:mariacaridadfalconrodriguez@gmail.com"

@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------------------
+# Global site configuration. Edit values here to update the whole website.
+# ---------------------------------------------------------------------------
+title: "Dr. María Caridad Falcón Rodríguez"
+shortName: "M. C. Falcón Rodríguez"
+role: "Full Professor of Economics · Tourism & Local Development"
+tagline: "Integrated tourism management as a driver of sustainable local development."
+description: >-
+  Academic homepage of Dr. María Caridad Falcón Rodríguez, Full Professor of
+  Economics specialising in integrated tourism management, sustainable
+  destination governance and local and regional development.
+keywords:
+  - tourism management
+  - sustainable tourism
+  - local development
+  - regional economics
+  - destination governance
+  - María Caridad Falcón Rodríguez
+locale: "en"
+ogImage: "/profile.png"
+
+# Primary navigation (order matters)
+nav:
+  - { label: "Home", href: "/" }
+  - { label: "About", href: "/about" }
+  - { label: "Research", href: "/research" }
+  - { label: "Publications", href: "/publications" }
+  - { label: "Teaching", href: "/teaching" }
+  - { label: "Projects", href: "/projects" }
+  - { label: "Awards", href: "/awards" }
+  - { label: "Testimonials", href: "/testimonials" }
+  - { label: "CV", href: "/cv" }
+  - { label: "Contact", href: "/contact" }

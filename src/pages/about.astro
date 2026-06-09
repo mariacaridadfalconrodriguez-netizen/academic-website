@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import Icon from '../components/Icon.astro';
+import { withBase } from '../lib/url';
+import about from '../data/about.yaml';
+import education from '../data/education.yaml';
+import positions from '../data/positions.yaml';
+import research from '../data/research.yaml';
+import profile from '../data/profile.yaml';
+import portrait from '../assets/profile.png';
+---
+<BaseLayout title="About" description={about.bioShort}>
+  <PageHeader eyebrow="About" title="Biography" intro="Economist, doctor of economic sciences and educator dedicated to sustainable tourism and local development." />
+
+  <section class="container-page py-16">
+    <div class="grid gap-12 lg:grid-cols-[0.9fr_1.4fr]">
+      <!-- Sidebar -->
+      <aside class="reveal space-y-8 lg:sticky lg:top-24 lg:self-start">
+        <div class="overflow-hidden rounded-3xl border border-ink-200/70 shadow-xl shadow-ink-900/10 dark:border-ink-700">
+          <Image src={portrait} alt={`Portrait of ${profile.name}`} widths={[320, 480]} sizes="(max-width: 1024px) 60vw, 22rem" class="w-full object-cover" />
+        </div>
+        <div class="card p-6">
+          <p class="font-serif text-lg font-semibold text-ink-900 dark:text-white">{profile.honorific} {profile.name}</p>
+          <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{profile.title}</p>
+          <ul class="mt-5 space-y-3 text-sm">
+            <li class="flex items-center gap-3 text-ink-600 dark:text-ink-300"><Icon name="pin" class="h-4 w-4 text-accent-600 dark:text-accent-400" /> {profile.location}</li>
+            <li class="flex items-center gap-3 text-ink-600 dark:text-ink-300"><Icon name="mail" class="h-4 w-4 text-accent-600 dark:text-accent-400" /> <a href={`mailto:${profile.email}`} class="hover:text-accent-700 dark:hover:text-accent-300 break-all">{profile.email}</a></li>
+          </ul>
+          <div class="mt-6"><SocialLinks variant="compact" /></div>
+        </div>
+      </aside>
+
+      <!-- Main content -->
+      <div class="space-y-14">
+        <div class="reveal prose prose-lg max-w-none prose-headings:font-serif dark:prose-invert prose-p:text-ink-600 dark:prose-p:text-ink-300">
+          {about.bioLong.map((para) => <p>{para}</p>)}
+        </div>
+
+        <!-- Focus areas -->
+        <div class="reveal">
+          <p class="eyebrow">Areas of expertise</p>
+          <div class="mt-4 flex flex-wrap gap-2">
+            {about.focus.map((f) => <span class="chip">{f}</span>)}
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="reveal">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Education</h2>
+          <div class="mt-6 space-y-4">
+            {education.map((ed) => (
+              <div class="card flex items-start gap-4 p-5">
+                <span class="mt-0.5 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent-100 text-accent-700 dark:bg-accent-500/15 dark:text-accent-300"><Icon name="cap" class="h-5 w-5" /></span>
+                <div>
+                  <p class="font-serif text-lg font-semibold text-ink-900 dark:text-white">{ed.degree}</p>
+                  <p class="text-sm text-ink-600 dark:text-ink-300">{ed.institution}</p>
+                  <p class="mt-1 text-xs text-ink-500 dark:text-ink-400">{ed.note} · {ed.year}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Career timeline -->
+        <div class="reveal">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Career</h2>
+          <ol class="mt-6 relative border-l border-ink-200 pl-6 dark:border-ink-700">
+            {positions.map((pos) => (
+              <li class="relative pb-8 last:pb-0">
+                <span class:list={['absolute -left-[1.65rem] mt-1 flex h-4 w-4 items-center justify-center rounded-full ring-4 ring-ink-50 dark:ring-ink-950', pos.current ? 'bg-accent-500' : 'bg-ink-300 dark:bg-ink-600']}></span>
+                <p class="text-xs font-semibold uppercase tracking-wide text-accent-600 dark:text-accent-400">{pos.start}{pos.end ? `–${pos.end}` : ''}</p>
+                <p class="mt-1 font-serif text-lg font-semibold text-ink-900 dark:text-white">{pos.role}</p>
+                <p class="text-sm text-ink-600 dark:text-ink-300">{pos.organization}</p>
+                <p class="mt-2 text-sm leading-relaxed text-ink-500 dark:text-ink-400">{pos.description}</p>
+              </li>
+            ))}
+          </ol>
+        </div>
+
+        <!-- Languages -->
+        <div class="reveal">
+          <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Languages</h2>
+          <div class="mt-6 grid gap-4 sm:grid-cols-3">
+            {research.languages.map((lang) => (
+              <div class="card p-5 text-center">
+                <p class="flex items-center justify-center gap-2 font-serif text-lg font-semibold text-ink-900 dark:text-white"><Icon name="globe" class="h-4 w-4 text-accent-600 dark:text-accent-400" /> {lang.name}</p>
+                <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{lang.level}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="reveal flex flex-wrap gap-3 pt-2">
+          <a href={withBase('/cv')} class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> Download CV</a>
+          <a href={withBase('/research')} class="btn btn-ghost">Explore research</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

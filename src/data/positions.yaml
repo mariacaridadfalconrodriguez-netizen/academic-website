@@ -1,0 +1,38 @@
+# ---------------------------------------------------------------------------
+# Academic appointments and professional positions (most recent first).
+# Used to build the career timeline.
+# ---------------------------------------------------------------------------
+- role: "Member"
+  organization: "Ibero-American Tourism Network"
+  start: "Present"
+  end: ""
+  current: true
+  description: >-
+    Active member of the Ibero-American Tourism Network, contributing to
+    cross-border research and knowledge exchange on tourism and development.
+- role: "Coordinator, Master in Tourism Management"
+  organization: "University of Ciego de Ávila, Cuba"
+  start: "2007"
+  end: "2023"
+  current: false
+  description: >-
+    Directed the graduate programme in Tourism Management, overseeing
+    curriculum, admissions and thesis supervision across more than fifteen
+    cohorts of students.
+- role: "Vice Dean for Postgraduate Studies & Research"
+  organization: "University of Ciego de Ávila, Cuba"
+  start: "2010"
+  end: "2022"
+  current: false
+  description: >-
+    Led the faculty's postgraduate education and research strategy at the
+    Faculty of Economic and Business Sciences, strengthening research output
+    and graduate training.
+- role: "Full Professor (Profesora Titular)"
+  organization: "University of Ciego de Ávila, Cuba"
+  start: "1986"
+  end: "2023"
+  current: false
+  description: >-
+    Taught and conducted research across economics and tourism management at
+    the highest academic rank, mentoring undergraduate and graduate students.

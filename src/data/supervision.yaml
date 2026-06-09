@@ -1,0 +1,46 @@
+# ---------------------------------------------------------------------------
+# Thesis supervision. Titles kept in their original language.
+# `type` is "Doctoral" or "Master's". Add new entries at the top.
+# ---------------------------------------------------------------------------
+summary:
+  total: 36
+  doctoral: 2
+  masters: 34
+
+theses:
+  - { student: "Leonel Reyes Fuentes", type: "Master's", year: 2023, title: "Mejoras a la calidad del servicio en el restaurante buffet Las Coloradas del hotel Pullman Cayo Coco" }
+  - { student: "Eduardo Peniche Álvarez", type: "Master's", year: 2023, title: "Estrategia promocional para los servicios que se ofertan en la Plaza Hemingway de Cayo Guillermo" }
+  - { student: "Kadier Cansio Valdés", type: "Master's", year: 2023, title: "Mejoras para la gestión de logística de la sucursal Emprestur Ciego de Ávila" }
+  - { student: "Jorge Raúl Perera Padilla", type: "Master's", year: 2023, title: "Metodología para la elaboración del plan de negocios para la UEB Marina Gaviota Cayo Coco" }
+  - { student: "Rosa Inés Guerra Álvarez", type: "Master's", year: 2023, title: "Procedimiento metodológico para la gestión de inventarios de los almacenes de la empresa ITH de Ciego de Ávila" }
+  - { student: "Héctor Hernández Milián", type: "Master's", year: 2023, title: "Estrategia para perfeccionar la calidad de los servicios en el restaurante SHAPE FEN del Hotel Memories Flamenco, Cayo Coco" }
+  - { student: "Dianelys Luis Machado", type: "Master's", year: 2023, title: "La capacidad de carga del turista ruso en la etapa pos-COVID-19 en el destino Jardines del Rey" }
+  - { student: "Arlettys Luna Salinas", type: "Master's", year: 2023, title: "Turismo accesible: una opción para mejorar la gestión comercial del destino Jardines del Rey" }
+  - { student: "Lenna Fernández Carrera", type: "Master's", year: 2023, title: "Estrategia de marketing relacional para la fidelización de clientes en el hotel Pullman Cayo Coco" }
+  - { student: "Eglys Tabera Mequense", type: "Master's", year: 2022, title: "Estrategia de comercialización para el incremento de la venta de servicios en la Agencia de Protección Contra Incendios" }
+  - { student: "Emiliano Isidro Carlos Mario", type: "Master's", year: 2022, title: "Mejoras para la gestión comercial del restaurante Fonda la Estrella" }
+  - { student: "Anastacio Paulo Nelito", type: "Master's", year: 2022, title: "Procedimiento de comercialización para las formas no estatales de gestión de alojamiento turístico en el municipio de Ciego de Ávila" }
+  - { student: "Nayanny Castellanos González", type: "Master's", year: 2021, title: "Actores implicados en el desarrollo turístico en Ciego de Ávila" }
+  - { student: "Yanet Mora Ferguson", type: "Master's", year: 2021, title: "Estrategia para la comercialización de la Sección The Collection del Hotel Pullman Cayo Coco" }
+  - { student: "Pedro Ernesto Posada Rodríguez", type: "Master's", year: 2021, title: "Proyección del turismo de eventos en el Hotel Pullman Cayo Coco" }
+  - { student: "Grether Caridad Brito Betancourt", type: "Master's", year: 2021, title: "Plan de acción para elevar la satisfacción de los clientes externos del Centro Comercial La Gaviota" }
+  - { student: "Anay Valdés Ramírez", type: "Master's", year: 2019, title: "Procedimiento metodológico para la evaluación de los servicios en el restaurante buffet Los Portales del Hotel Meliá Cayo Guillermo" }
+  - { student: "Yaima Hernández García", type: "Master's", year: 2019, title: "Estrategia comercial para la tienda Detalles de la sucursal Caracol S.A." }
+  - { student: "Raúl Gómez García", type: "Master's", year: 2019, title: "Procedimiento metodológico para la evaluación de los servicios en el restaurante buffet Los Portales del Hotel Meliá Cayo Guillermo" }
+  - { student: "Hermys Lorenzo Linares", type: "Doctoral", year: 2016, title: "Procedimiento para la evaluación integrada de los destinos turísticos (Universidad de Camagüey)" }
+  - { student: "Juan Manuel Pérez Falcón", type: "Master's", year: 2016, title: "El turismo cultural y la interpretación del patrimonio en la ciudad de Ciego de Ávila" }
+  - { student: "Carlos David Cusme Lliguisupa", type: "Master's", year: 2016, title: "Estrategia de comunicación promocional turística para la parroquia de Ahuano, cantón Tena, provincia Napo, Ecuador" }
+  - { student: "Sandra Elizabeth Delgado Almeida", type: "Master's", year: 2016, title: "Procedimiento para el diseño de un producto turístico ecológico: cabañas ecológicas de la parroquia Nayón, provincia Pichincha, Ecuador" }
+  - { student: "Lisdianis López Ledo", type: "Master's", year: 2016, title: "Evaluación del comportamiento del suministro de productos agropecuarios locales al sector hotelero, caso hotel Meliá Cayo Coco" }
+  - { student: "Linnet Lorenzo Linares", type: "Master's", year: 2015, title: "Procedimiento para estimar el precio en función del desarrollo turístico, caso Meliá Cayo Coco" }
+  - { student: "Alejandro Hernández Álvarez", type: "Master's", year: 2015, title: "Ruta cultural avileña: un producto turístico para la Agencia de Viajes Paradiso en Ciego de Ávila" }
+  - { student: "Menelio Espinosa Leiva", type: "Doctoral", year: 2014, title: "Procedimiento metodológico para las comunidades afectadas por la reconversión de la industria azucarera en Cuba (Universidad de Camagüey)" }
+  - { student: "Leidier Rodríguez Betancourt", type: "Master's", year: 2014, title: "Sistema de acciones a partir de la identificación de los impactos del turismo en el Consejo Popular Centro de ciudad del municipio Ciego de Ávila" }
+  - { student: "Yosvany Falcón Viña", type: "Master's", year: 2014, title: "Diseño de un instrumento metodológico para la gestión del patrimonio cultural a partir de un turismo sostenible en el municipio de Ciego de Ávila" }
+  - { student: "Ismel Bravo Placeres", type: "Master's", year: 2014, title: "Estrategia de calidad de los servicios de alimentos y bebidas desde el enfoque a la satisfacción del cliente para restaurante buffet" }
+  - { student: "Giovel Rodríguez Rivero", type: "Master's", year: 2014, title: "Plan de acciones para potenciar la relación turismo–agricultura, caso Empresa Agroindustrial Ceballos de Ciego de Ávila" }
+  - { student: "Yanelis Ocaña Vázquez", type: "Master's", year: 2014, title: "Sistema de acciones para el desarrollo del turismo rural en la comunidad Celia Sánchez Manduley" }
+  - { student: "Ilena Guevara Santana", type: "Master's", year: 2014, title: "Sistema de acciones a partir de la gestión integrada de la calidad de los servicios en el aeropuerto internacional Jardines del Rey" }
+  - { student: "Jorge Franco López", type: "Master's", year: 2009, title: "La hospitalidad como indicador de la calidad de los servicios extrahoteleros en Palmares, Ciego de Ávila" }
+  - { student: "Lourdes Arza García", type: "Master's", year: 2009, title: "Procedimiento metodológico para la evaluación de la percepción de la imagen del destino Jardines del Rey" }
+  - { student: "Carmen Yamely Aguilar Martín", type: "Master's", year: null, title: "Sistema de acciones para la gestión de la demanda turística en el hotel Meliá Cayo Guillermo" }

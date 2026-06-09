@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mariacaridadfalconrodriguez-netizen.github.io/academic-website/sitemap-index.xml

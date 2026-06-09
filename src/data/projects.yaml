@@ -1,0 +1,48 @@
+# ---------------------------------------------------------------------------
+# Competitive research projects and research stays.
+# ---------------------------------------------------------------------------
+intro: >-
+  Competitively funded research projects on tourism as a factor of sustainable
+  local development, complemented by international research stays in Mexico and
+  Ecuador.
+
+projects:
+  - title: "Integrated Tourism Management Model as a Factor of Local Development in Cuban Municipalities — Phase II"
+    original: "Modelo de Gestión Integrada del Turismo como factor de desarrollo local en los municipios de Cuba (segunda etapa)"
+    institution: "University of Ciego de Ávila, Cuba"
+    period: "2020–2024"
+    role: "Researcher"
+    program: "Local Development Programme of Cuba"
+    description: >-
+      Second phase consolidating and scaling the integrated tourism management
+      model as a driver of municipal development across Cuba.
+  - title: "Integrated Tourism Management Model as a Factor of Local Development in Cuban Municipalities — Phase I"
+    original: "Modelo de Gestión Integrada del turismo como factor de desarrollo local en los municipios de Cuba (primera etapa)"
+    institution: "University of Ciego de Ávila, Cuba"
+    period: "2016–2020"
+    role: "Principal Investigator"
+    program: "Local Development Programme of Cuba"
+    description: >-
+      Designed and led the first phase developing an integrated model linking
+      tourism governance with local development outcomes in Cuban municipalities.
+  - title: "Tourism Development under Coastal Littoral Conditions"
+    original: "Desarrollo turístico en condiciones de litoral costero"
+    institution: "University of Ciego de Ávila, Cuba"
+    period: "2015–2018"
+    role: "Researcher (team of 5)"
+    program: ""
+    description: >-
+      Investigated sustainable tourism development strategies specific to
+      coastal littoral environments in the Ciego de Ávila region.
+
+stays:
+  - institution: "Autonomous University of Chapingo"
+    location: "Mexico"
+    period: "Sep–Dec 2012"
+    duration: "4 months"
+    capacity: "Contracted researcher"
+  - institution: "Catholic University of Guayaquil"
+    location: "Guayaquil, Ecuador"
+    period: "—"
+    duration: "1 month"
+    capacity: "Invited researcher"

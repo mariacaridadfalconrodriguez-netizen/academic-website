@@ -1,0 +1,113 @@
+# ---------------------------------------------------------------------------
+# Publications. Titles are kept in their original language of publication.
+# `type` is one of: Journal Article, Book Chapter, Conference Paper.
+# Add new entries at the top of the relevant list.
+# ---------------------------------------------------------------------------
+
+# High-level metrics shown on the Publications page.
+# Values marked as placeholders should be updated from Google Scholar / ORCID.
+metrics:
+  - { label: "Journal articles", value: "6" }
+  - { label: "Book chapters", value: "3" }
+  - { label: "Conference papers", value: "10" }
+  - { label: "Years active", value: "1986–present" }
+
+articles:
+  - title: "La Universidad ante los retos del desarrollo local y turístico en Cuba"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "Revista Estrategia y Gestión Universitaria, 10(1)"
+    year: 2022
+    type: "Journal Article"
+    url: ""
+  - title: "Sostenibilidad y Desarrollo Local: Procedimiento para la evaluación integrada de los destinos turísticos"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "Revista Rosa dos Ventos – Turismo e Hospitalidade, Brazil"
+    year: 2021
+    type: "Journal Article"
+    url: ""
+  - title: "La relación desarrollo local – desarrollo turístico en Cuba"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "Zenodo"
+    year: 2019
+    type: "Journal Article"
+    url: "https://doi.org/10.5281/zenodo.574582"
+  - title: "Contribución a la gestión integrada del desarrollo turístico sostenible en los territorios desde un enfoque multidisciplinario"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "Anales de la Academia de Ciencias de Cuba, 8(1), ISSN 2304-0105"
+    year: 2018
+    type: "Journal Article"
+    url: ""
+  - title: "Necesidad de la implementación de la Gestión Integral de Destinos de Sol y Playa: un estudio de caso"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "Revista Turismo & Desenvolvimento, Portugal"
+    year: 2018
+    type: "Journal Article"
+    url: ""
+  - title: "El posicionamiento del mercado versus capacidad de carga del turista: un tributo al desarrollo sostenible del destino Jardines del Rey"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "Revista Universidad y Ciencia, 11(1)"
+    year: 2017
+    type: "Journal Article"
+    url: ""
+
+chapters:
+  - title: "Modelo para la Gestión Integrada de Destinos Turísticos como factor de Desarrollo Local"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "In: Diversas miradas al Desarrollo Local en Cuba. Editorial Academia"
+    year: 2021
+    type: "Book Chapter"
+    url: ""
+  - title: "Las potencialidades turísticas integradas y compatibilizadas a la gestión del desarrollo local"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "In: Ciencia e Innovación Tecnológica. ISBN 978-959-722"
+    year: 2019
+    type: "Book Chapter"
+    url: ""
+  - title: "Percepción de la población local de los impactos del turismo: un estudio de caso"
+    authors: "Falcón Rodríguez, M. C."
+    venue: "In: Ciencia e Innovación Tecnológica. ISBN 978-959-722"
+    year: 2019
+    type: "Book Chapter"
+    url: ""
+
+conferences:
+  - title: "Contribución del turismo al desarrollo local sostenible: un estudio de caso"
+    venue: "UNICA Convention, University of Ciego de Ávila, Cuba"
+    year: 2022
+    type: "Conference Paper"
+  - title: "Educación en patrimonio para el desarrollo cultural próspero y sostenible"
+    venue: "III International Convention UCLV — Symposium on Education for Sustainable Development, Cuba"
+    year: 2022
+    type: "Conference Paper"
+  - title: "Desarrollo local y turístico en Cuba"
+    venue: "II International Scientific & Technological Convention, University of Camagüey, Cuba"
+    year: 2021
+    type: "Conference Paper"
+  - title: "La gestión integrada del destino Jardines del Rey"
+    venue: "III International Symposium on Science and Technological Innovation, Cuba"
+    year: 2019
+    type: "Conference Paper"
+  - title: "Las potencialidades turísticas integradas y compatibilizadas a la gestión del desarrollo local"
+    venue: "III International Symposium on Science and Technological Innovation, Cuba"
+    year: 2019
+    type: "Conference Paper"
+  - title: "Bases teóricas para un modelo de gestión del desarrollo turístico a escala local"
+    venue: "XIII International Convention UNICA, University of Ciego de Ávila, Cuba"
+    year: 2018
+    type: "Conference Paper"
+  - title: "Evaluación de la integración entre las partes que intervienen en el desarrollo turístico del destino Jardines del Rey"
+    venue: "XIII International Convention UNICA, University of Ciego de Ávila, Cuba"
+    year: 2018
+    type: "Conference Paper"
+  - title: "Procedimiento para el sistema de gestión de inventario en la comercializadora ITH para el turismo, Cayo Coco"
+    venue: "XIII International Convention UNICA, University of Ciego de Ávila, Cuba"
+    year: 2018
+    type: "Conference Paper"
+  - title: "Procedimiento para la integración de las potencialidades turísticas en el contexto de una gestión ambiental sostenible"
+    venue: "XIII International Convention UNICA, University of Ciego de Ávila, Cuba"
+    year: 2018
+    type: "Conference Paper"
+  - title: "El turismo y su contribución al desarrollo local sostenible de las comunidades cubanas"
+    venue: "XIV Ibero-American Congress of Thought, University of Holguín, Cuba"
+    year: 2018
+    type: "Conference Paper"

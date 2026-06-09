@@ -1,0 +1,49 @@
+# ---------------------------------------------------------------------------
+# Awards, distinctions and scientific milestones (timeline, most recent first).
+# Items flagged `placeholder: true` are derived achievements / suggested
+# entries — replace or confirm them with official distinctions as available.
+# ---------------------------------------------------------------------------
+intro: >-
+  A career marked by sustained scientific contribution, academic leadership and
+  the training of researchers and professionals in tourism and economics.
+
+items:
+  - year: "2020"
+    title: "Principal Investigator, National Tourism & Local Development Programme"
+    organization: "Local Development Programme of Cuba"
+    description: >-
+      Selected to lead competitively funded research on integrated tourism
+      management as a factor of municipal development.
+    placeholder: false
+  - year: "2010"
+    title: "Vice Dean for Postgraduate Studies & Research"
+    organization: "University of Ciego de Ávila, Cuba"
+    description: >-
+      Appointed to lead the faculty's research and graduate education strategy.
+    placeholder: false
+  - year: "2007"
+    title: "Doctor of Economic Sciences"
+    organization: "University of Camagüey, Cuba"
+    description: >-
+      Awarded the doctoral degree in Economic Sciences.
+    placeholder: false
+  - year: "1986"
+    title: "Full Professor (Profesora Titular)"
+    organization: "University of Ciego de Ávila, Cuba"
+    description: >-
+      Reached the highest academic rank through sustained teaching and research
+      excellence.
+    placeholder: false
+  - year: "—"
+    title: "Member, Ibero-American Tourism Network"
+    organization: "Ibero-American Tourism Network"
+    description: >-
+      Recognised membership in an international network for tourism research and
+      cooperation.
+    placeholder: false
+
+# Optional honours/distinctions to be completed from official records.
+distinctions:
+  - "Add honorary distinctions, medals or recognitions here."
+  - "Add editorial board memberships or review roles here."
+  - "Add keynote invitations or special recognitions here."

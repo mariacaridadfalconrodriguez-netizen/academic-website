@@ -1,0 +1,16 @@
+# ---------------------------------------------------------------------------
+# Contact details and channels.
+# ---------------------------------------------------------------------------
+intro: >-
+  I welcome enquiries regarding research collaboration, graduate supervision,
+  speaking invitations and academic partnerships.
+email: "mariacaridadfalconrodriguez@gmail.com"
+phone: "+34 602 625 101"
+location: "Valencia, Spain"
+
+channels:
+  - { label: "Email", value: "mariacaridadfalconrodriguez@gmail.com", url: "mailto:mariacaridadfalconrodriguez@gmail.com", icon: "mail" }
+  - { label: "ORCID", value: "0000-0001-6741-6500", url: "https://orcid.org/0000-0001-6741-6500", icon: "orcid" }
+  - { label: "Google Scholar", value: "View profile", url: "#", icon: "scholar" }
+  - { label: "ResearchGate", value: "View profile", url: "#", icon: "researchgate" }
+  - { label: "LinkedIn", value: "View profile", url: "#", icon: "linkedin" }

@@ -1,0 +1,15 @@
+# ---------------------------------------------------------------------------
+# Academic degrees (most recent first).
+# ---------------------------------------------------------------------------
+- degree: "Ph.D. in Economic Sciences"
+  institution: "University of Camagüey, Cuba"
+  year: "2007"
+  note: "Doctor en Ciencias Económicas"
+- degree: "Master in Regional Development"
+  institution: "University of Camagüey, Cuba"
+  year: "2004"
+  note: "Máster en Desarrollo Regional"
+- degree: "Degree in Economics & Teaching of Economics"
+  institution: "Lomonosov Moscow State University, Russia"
+  year: "1986"
+  note: "Licenciatura en Economía y Profesora de Economía"

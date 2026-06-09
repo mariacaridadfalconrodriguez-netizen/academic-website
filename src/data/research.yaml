@@ -1,0 +1,74 @@
+# ---------------------------------------------------------------------------
+# Research areas, collaborations and languages.
+# ---------------------------------------------------------------------------
+intro: >-
+  My research programme develops models and methodologies for the integrated
+  management of tourism destinations, treating tourism as a strategic lever for
+  sustainable local and regional development. I combine economic analysis with
+  destination governance, service quality and environmental sustainability to
+  support evidence-based decisions by institutions and communities.
+
+areas:
+  - title: "Integrated Tourism Management"
+    icon: "compass"
+    description: >-
+      Models for governing tourism destinations as integrated systems,
+      aligning public institutions, enterprises and communities around shared
+      development goals.
+  - title: "Sustainable Local & Regional Development"
+    icon: "leaf"
+    description: >-
+      The relationship between tourism and local development, including
+      community impacts, participation of stakeholders and the contribution of
+      tourism to municipal and regional economies.
+  - title: "Destination Governance & Quality"
+    icon: "shield"
+    description: >-
+      Integrated quality management of tourism services and destinations, with
+      methodologies for evaluating service perception, hospitality and the
+      integrated assessment of destinations.
+  - title: "Carrying Capacity & Sustainability"
+    icon: "balance"
+    description: >-
+      Market positioning versus tourist carrying capacity, environmental
+      management and the design of sustainable tourism products in coastal and
+      cultural settings.
+  - title: "Heritage & Cultural Tourism"
+    icon: "landmark"
+    description: >-
+      Cultural and heritage tourism, heritage interpretation and the design of
+      cultural routes and products that protect and valorise local identity.
+  - title: "Tourism & Agriculture Linkages"
+    icon: "sprout"
+    description: >-
+      Strengthening the relationship between tourism and agriculture, including
+      local supply chains for the hotel sector and rural tourism development.
+
+# Notable destinations and field contexts studied.
+fieldContexts:
+  - "Jardines del Rey destination (Cuba)"
+  - "Cayo Coco & Cayo Guillermo resorts"
+  - "Ciego de Ávila municipality"
+  - "Coastal & sun-and-beach destinations"
+
+collaborations:
+  - institution: "University of Ciego de Ávila"
+    country: "Cuba"
+    note: "Home institution for three decades of research and graduate education."
+  - institution: "University of Camagüey"
+    country: "Cuba"
+    note: "Doctoral and master's training; collaborative research on local development."
+  - institution: "Autonomous University of Chapingo"
+    country: "Mexico"
+    note: "Research stay (2012) on tourism and rural development."
+  - institution: "Catholic University of Guayaquil"
+    country: "Ecuador"
+    note: "Invited research stay and graduate supervision."
+  - institution: "Ibero-American Tourism Network"
+    country: "International"
+    note: "Cross-border knowledge exchange on tourism and development."
+
+languages:
+  - { name: "Spanish", level: "Native" }
+  - { name: "Russian", level: "Intermediate (A2)" }
+  - { name: "English", level: "Basic (A1)" }

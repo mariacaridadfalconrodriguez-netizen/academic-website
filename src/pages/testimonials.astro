@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { withBase } from '../lib/url';
+import testimonials from '../data/testimonials.yaml';
+import profile from '../data/profile.yaml';
+---
+<BaseLayout title="Testimonials" description={testimonials.intro}>
+  <PageHeader eyebrow="Voices" title="Testimonials" intro={testimonials.intro} />
+
+  <section class="container-page py-16">
+    <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      {testimonials.items.map((t) => (
+        <figure class="reveal card card-hover flex h-full flex-col p-7">
+          <span class="text-accent-300 dark:text-accent-700"><Icon name="quote" class="h-9 w-9" /></span>
+          <blockquote class="mt-4 flex-1 text-base leading-relaxed text-ink-700 dark:text-ink-200">
+            {t.quote}
+          </blockquote>
+          <figcaption class="mt-6 border-t border-ink-200/70 pt-4 dark:border-ink-800">
+            <p class="font-serif text-base font-semibold text-ink-900 dark:text-white">{t.name}</p>
+            <p class="text-sm text-ink-500 dark:text-ink-400">{t.role}</p>
+            {t.placeholder && <span class="mt-2 inline-block chip">Invited testimonial</span>}
+          </figcaption>
+        </figure>
+      ))}
+    </div>
+
+    <!-- Invitation -->
+    <div class="reveal mt-12 overflow-hidden rounded-3xl bg-grid border border-ink-200/70 p-8 text-center dark:border-ink-800 sm:p-12">
+      <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Share your experience</h2>
+      <p class="mx-auto mt-3 max-w-2xl text-ink-600 dark:text-ink-300">{testimonials.invite}</p>
+      <a href={withBase('/contact')} class="btn btn-primary mt-6">
+        Submit a testimonial <Icon name="arrow" class="h-4 w-4" />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

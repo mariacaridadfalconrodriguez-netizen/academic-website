@@ -1,0 +1,79 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHeader from '../components/PageHeader.astro';
+import Icon from '../components/Icon.astro';
+import { withBase } from '../lib/url';
+import education from '../data/education.yaml';
+import positions from '../data/positions.yaml';
+import about from '../data/about.yaml';
+
+const cvFile = withBase('/cv-maria-caridad-falcon-rodriguez.pdf');
+---
+<BaseLayout title="CV" description="Curriculum vitae of Dr. María Caridad Falcón Rodríguez — download the full PDF or browse the summary.">
+  <PageHeader eyebrow="Curriculum Vitae" title="Curriculum Vitae" intro="A concise overview of academic appointments, education and scholarly activity. The full CV is available to download as a PDF." />
+
+  <section class="container-page py-16">
+    <!-- Summary stats + download -->
+    <div class="reveal flex flex-col gap-6 rounded-3xl bg-grid border border-ink-200/70 p-8 dark:border-ink-800 lg:flex-row lg:items-center lg:justify-between">
+      <div class="grid grid-cols-2 gap-6 sm:grid-cols-4">
+        {about.facts.map((fact) => (
+          <div>
+            <p class="font-serif text-3xl font-semibold text-accent-700 dark:text-accent-300">{fact.value}</p>
+            <p class="mt-1 text-xs text-ink-500 dark:text-ink-400">{fact.label}</p>
+          </div>
+        ))}
+      </div>
+      <div class="flex flex-wrap gap-3">
+        <a href={cvFile} download class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> Download PDF</a>
+        <a href={cvFile} target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><Icon name="external" class="h-4 w-4" /> Open in new tab</a>
+      </div>
+    </div>
+
+    <div class="mt-12 grid gap-12 lg:grid-cols-2">
+      <!-- Education -->
+      <div class="reveal">
+        <h2 class="flex items-center gap-2 font-serif text-2xl font-semibold text-ink-900 dark:text-white"><Icon name="cap" class="h-5 w-5 text-accent-600 dark:text-accent-400" /> Education</h2>
+        <div class="mt-6 space-y-4">
+          {education.map((ed) => (
+            <div class="card p-5">
+              <div class="flex items-center justify-between gap-3">
+                <p class="font-serif text-base font-semibold text-ink-900 dark:text-white">{ed.degree}</p>
+                <span class="chip shrink-0">{ed.year}</span>
+              </div>
+              <p class="mt-1 text-sm text-ink-600 dark:text-ink-300">{ed.institution}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Appointments -->
+      <div class="reveal">
+        <h2 class="flex items-center gap-2 font-serif text-2xl font-semibold text-ink-900 dark:text-white"><Icon name="landmark" class="h-5 w-5 text-accent-600 dark:text-accent-400" /> Appointments</h2>
+        <div class="mt-6 space-y-4">
+          {positions.map((pos) => (
+            <div class="card p-5">
+              <div class="flex items-center justify-between gap-3">
+                <p class="font-serif text-base font-semibold text-ink-900 dark:text-white">{pos.role}</p>
+                <span class="chip shrink-0">{pos.start}{pos.end ? `–${pos.end}` : ''}</span>
+              </div>
+              <p class="mt-1 text-sm text-ink-600 dark:text-ink-300">{pos.organization}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Embedded PDF -->
+    <div class="reveal mt-14">
+      <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">Full document</h2>
+      <div class="mt-6 overflow-hidden rounded-2xl border border-ink-200/70 shadow-lg dark:border-ink-800">
+        <object data={cvFile} type="application/pdf" class="h-[80vh] w-full">
+          <div class="flex flex-col items-center justify-center gap-4 p-12 text-center">
+            <p class="text-ink-600 dark:text-ink-300">Your browser cannot display the embedded PDF.</p>
+            <a href={cvFile} download class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> Download the CV</a>
+          </div>
+        </object>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
