@@ -14,17 +14,17 @@
 # ---------------------------------------------------------------------------
 
 # Enlace público del formulario (botón "Enviar un testimonio").
-formUrl: ""
+formUrl: "https://docs.google.com/forms/d/e/1FAIpQLSce1Hjrl3dNrxJ79_UIqN1BJbQMZSps6kX68xkCfRvT9LNVcw/viewform"
 
 # URL CSV publicada de la hoja de respuestas
 # (Archivo > Compartir > Publicar en la web > selecciona la hoja > CSV).
-csvUrl: ""
+csvUrl: "https://docs.google.com/spreadsheets/d/e/2PACX-1vRkV-09ERmRHb-MrZE1xxuSrmjbslgjFDTqC__5SNJkJq5L29RNoWGbEOA4_86ne7NLyPVsg0CFJyVs/pub?gid=1866167249&single=true&output=csv"
 
 # Nombres EXACTOS de las cabeceras (primera fila) de la hoja.
 # Ajusta estos valores si nombras las preguntas/columnas de otra forma.
 columns:
-  name: "Nombre"
-  role: "Cargo"
-  quote: "Testimonio"
-  language: "Idioma"   # valores admitidos: es / en / español / english (vacío = ambos)
-  approved: "Aprobado" # se muestra si vale: sí, si, yes, true, x, 1, verdadero
+  name: "Name"
+  role: "Position"
+  quote: "Testimonial"
+  language: "Language"   # valores admitidos: English / Castellano (vacío = ambos)
+  approved: "Aprobado"   # se muestra si vale: sí, si, yes, true, x, 1, verdadero

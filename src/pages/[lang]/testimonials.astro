@@ -72,7 +72,7 @@ const shareHref = formUrl || link(lang, '/contact');
       const loading = document.getElementById('testimonials-loading');
       if (!grid) return;
 
-      const APPROVED = ['si', 'sí', 'yes', 'true', 'verdadero', 'x', '1'];
+      const APPROVED = ['si', 'sí', 'yes', 'true', 'verdadero', 'aprobado', 'approved', 'x', '1'];
       const QUOTE_SVG =
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" class="h-9 w-9" aria-hidden="true"><path d="M9 7H6a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v-2H6V9h3V7Zm9 0h-3a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h2v-2h-2V9h3V7Z"/></svg>';
 
@@ -115,7 +115,7 @@ const shareHref = formUrl || link(lang, '/contact');
       function normLang(v) {
         const s = String(v || '').trim().toLowerCase();
         if (!s) return '';
-        if (s.startsWith('es') || s.startsWith('esp')) return 'es';
+        if (s.startsWith('es') || s.startsWith('esp') || s.startsWith('cas')) return 'es';
         if (s.startsWith('en') || s.startsWith('ing')) return 'en';
         return s;
       }
