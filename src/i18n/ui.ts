@@ -129,6 +129,7 @@ export const ui = {
       share: 'Comparte tu experiencia',
       submit: 'Enviar un testimonio',
       loading: 'Cargando testimonios…',
+      moderated: 'Los testimonios se revisan antes de publicarse.',
     },
     cv: {
       eyebrow: 'Currículum Vítae',
@@ -280,6 +281,7 @@ export const ui = {
       share: 'Share your experience',
       submit: 'Submit a testimonial',
       loading: 'Loading testimonials…',
+      moderated: 'Testimonials are reviewed before being published.',
     },
     cv: {
       eyebrow: 'Curriculum Vitae',
