@@ -75,7 +75,7 @@ const personSchema = {
     <meta name="theme-color" content="#11151d" media="(prefers-color-scheme: dark)" />
     <meta name="theme-color" content="#f6f7f9" media="(prefers-color-scheme: light)" />
 
-    <set:html>{`<script type="application/ld+json">${JSON.stringify(personSchema)}</script>`}</set:html>
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(personSchema)} />
 
     <!-- Apply theme before paint to avoid flash. -->
     <script is:inline>
