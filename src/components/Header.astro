@@ -9,7 +9,11 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const site = getContent(lang).site;
+const c = getContent(lang);
+const site = c.site;
+const cvAvailable = c.profile.cv?.available === true;
+// Hide the CV entry until a CV PDF is available for this language.
+const navItems = site.nav.filter((item: { href: string }) => item.href !== '/cv' || cvAvailable);
 const pathname = Astro.url.pathname;
 
 const norm = (s: string) => s.replace(/\/$/, '') || '/';
@@ -32,7 +36,7 @@ function isActive(href: string): boolean {
     </a>
 
     <nav class="hidden items-center gap-1 xl:flex" aria-label="Primary">
-      {site.nav.map((item) => (
+      {navItems.map((item) => (
         <a
           href={link(lang, item.href)}
           class:list={[
@@ -66,7 +70,7 @@ function isActive(href: string): boolean {
 
   <nav id="mobile-nav" class="hidden border-t border-ink-200/60 bg-ink-50/95 px-5 pb-4 pt-2 xl:hidden dark:border-ink-800/70 dark:bg-ink-950/95" aria-label="Mobile">
     <div class="grid grid-cols-2 gap-1">
-      {site.nav.map((item) => (
+      {navItems.map((item) => (
         <a
           href={link(lang, item.href)}
           class:list={[

@@ -17,6 +17,7 @@ const lang = Astro.params.lang as Lang;
 const c = getContent(lang);
 const t = useTranslations(lang);
 const { profile, about, education, positions, research } = c;
+const cvAvailable = profile.cv?.available === true;
 ---
 <BaseLayout lang={lang} title={t.about.title} description={about.bioShort}>
   <PageHeader eyebrow={t.about.eyebrow} title={t.about.title} intro={t.about.intro} />
@@ -96,7 +97,9 @@ const { profile, about, education, positions, research } = c;
         </div>
 
         <div class="reveal flex flex-wrap gap-3 pt-2">
-          <a href={link(lang, '/cv')} class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> {t.about.downloadCV}</a>
+          {cvAvailable && (
+            <a href={link(lang, '/cv')} class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> {t.about.downloadCV}</a>
+          )}
           <a href={link(lang, '/research')} class="btn btn-ghost">{t.about.exploreResearch}</a>
         </div>
       </div>

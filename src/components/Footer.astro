@@ -13,6 +13,8 @@ const site = c.site;
 const profile = c.profile;
 const t = useTranslations(lang);
 const year = new Date().getFullYear();
+const cvAvailable = c.profile.cv?.available === true;
+const navItems = site.nav.filter((item: { href: string }) => item.href !== '/cv' || cvAvailable);
 ---
 <footer class="mt-24 border-t border-ink-200/60 bg-white/50 dark:border-ink-800/70 dark:bg-ink-900/30">
   <div class="container-page py-12">
@@ -28,7 +30,7 @@ const year = new Date().getFullYear();
       <div>
         <p class="eyebrow">{t.common.explore}</p>
         <ul class="mt-4 grid grid-cols-2 gap-y-2 text-sm">
-          {site.nav.map((item) => (
+          {navItems.map((item) => (
             <li>
               <a href={link(lang, item.href)} class="text-ink-600 transition hover:text-accent-700 dark:text-ink-300 dark:hover:text-accent-300">{item.label}</a>
             </li>

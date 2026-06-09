@@ -16,6 +16,7 @@ const lang = Astro.params.lang as Lang;
 const c = getContent(lang);
 const t = useTranslations(lang);
 const { profile, about, research, publications } = c;
+const cvAvailable = profile.cv?.available === true;
 
 const featuredAreas = research.areas.slice(0, 3);
 const selected = publications.articles.slice(0, 3);
@@ -40,9 +41,11 @@ const selected = publications.articles.slice(0, 3);
           <a href={link(lang, '/research')} class="btn btn-primary">
             {t.home.exploreResearch} <Icon name="arrow" class="h-4 w-4" />
           </a>
-          <a href={link(lang, '/cv')} class="btn btn-ghost">
-            <Icon name="download" class="h-4 w-4" /> {t.home.cv}
-          </a>
+          {cvAvailable && (
+            <a href={link(lang, '/cv')} class="btn btn-ghost">
+              <Icon name="download" class="h-4 w-4" /> {t.home.cv}
+            </a>
+          )}
           <a href={link(lang, '/contact')} class="btn btn-ghost">{t.home.getInTouch}</a>
         </div>
 

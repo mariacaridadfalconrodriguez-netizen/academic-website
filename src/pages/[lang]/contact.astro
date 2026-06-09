@@ -13,6 +13,10 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
 const contact = getContent(lang).contact;
+// Only show channels with a real, personalized link (skip placeholders like "#").
+const channels = contact.channels.filter(
+  (ch: { url?: string }) => ch.url && ch.url !== '#'
+);
 
 const iconFor: Record<string, string> = {
   mail: 'mail',
@@ -49,7 +53,7 @@ const iconFor: Record<string, string> = {
         <div class="card p-6">
           <p class="eyebrow">{t.contact.profiles}</p>
           <div class="mt-4 space-y-3">
-            {contact.channels.map((ch) => (
+            {channels.map((ch) => (
               <a
                 href={ch.url}
                 target={ch.url.startsWith('http') ? '_blank' : undefined}

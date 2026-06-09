@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import Icon from '../../components/Icon.astro';
+import CvDocument from '../../components/CvDocument.astro';
 import { withBase } from '../../lib/url';
 import { getContent } from '../../i18n/content';
 import { useTranslations, type Lang } from '../../i18n/ui';
@@ -13,70 +14,22 @@ export function getStaticPaths() {
 
 const lang = Astro.params.lang as Lang;
 const t = useTranslations(lang);
-const { about, education, positions } = getContent(lang);
-const cvFile = withBase('/cv-maria-caridad-falcon-rodriguez.pdf');
+const { about, education, positions, profile } = getContent(lang);
+const cvAvailable = profile.cv?.available === true;
+const cvFile = withBase(profile.cv?.file ?? '/');
 ---
 <BaseLayout lang={lang} title={t.cv.title} description={t.cv.intro}>
   <PageHeader eyebrow={t.cv.eyebrow} title={t.cv.title} intro={t.cv.intro} />
 
-  <section class="container-page py-16">
-    <div class="reveal flex flex-col gap-6 rounded-3xl bg-grid border border-ink-200/70 p-8 dark:border-ink-800 lg:flex-row lg:items-center lg:justify-between">
-      <div class="grid grid-cols-2 gap-6 sm:grid-cols-4">
-        {about.facts.map((fact) => (
-          <div>
-            <p class="font-serif text-3xl font-semibold text-accent-700 dark:text-accent-300">{fact.value}</p>
-            <p class="mt-1 text-xs text-ink-500 dark:text-ink-400">{fact.label}</p>
-          </div>
-        ))}
+  {cvAvailable ? (
+    <CvDocument about={about} education={education} positions={positions} cvFile={cvFile} t={t} />
+  ) : (
+    <section class="container-page py-20">
+      <div class="reveal mx-auto max-w-2xl card border-dashed p-10 text-center">
+        <span class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-accent-100 text-accent-700 dark:bg-accent-500/15 dark:text-accent-300"><Icon name="doc" class="h-7 w-7" /></span>
+        <h2 class="mt-6 font-serif text-2xl font-semibold text-ink-900 dark:text-white">{t.cv.comingSoonTitle}</h2>
+        <p class="mt-3 text-ink-600 dark:text-ink-300">{t.cv.comingSoonText}</p>
       </div>
-      <div class="flex flex-wrap gap-3">
-        <a href={cvFile} download class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> {t.cv.downloadPDF}</a>
-        <a href={cvFile} target="_blank" rel="noopener noreferrer" class="btn btn-ghost"><Icon name="external" class="h-4 w-4" /> {t.cv.openNewTab}</a>
-      </div>
-    </div>
-
-    <div class="mt-12 grid gap-12 lg:grid-cols-2">
-      <div class="reveal">
-        <h2 class="flex items-center gap-2 font-serif text-2xl font-semibold text-ink-900 dark:text-white"><Icon name="cap" class="h-5 w-5 text-accent-600 dark:text-accent-400" /> {t.cv.education}</h2>
-        <div class="mt-6 space-y-4">
-          {education.map((ed) => (
-            <div class="card p-5">
-              <div class="flex items-center justify-between gap-3">
-                <p class="font-serif text-base font-semibold text-ink-900 dark:text-white">{ed.degree}</p>
-                <span class="chip shrink-0">{ed.year}</span>
-              </div>
-              <p class="mt-1 text-sm text-ink-600 dark:text-ink-300">{ed.institution}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div class="reveal">
-        <h2 class="flex items-center gap-2 font-serif text-2xl font-semibold text-ink-900 dark:text-white"><Icon name="landmark" class="h-5 w-5 text-accent-600 dark:text-accent-400" /> {t.cv.appointments}</h2>
-        <div class="mt-6 space-y-4">
-          {positions.map((pos) => (
-            <div class="card p-5">
-              <div class="flex items-center justify-between gap-3">
-                <p class="font-serif text-base font-semibold text-ink-900 dark:text-white">{pos.role}</p>
-                <span class="chip shrink-0">{pos.start}{pos.end ? `–${pos.end}` : ''}</span>
-              </div>
-              <p class="mt-1 text-sm text-ink-600 dark:text-ink-300">{pos.organization}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    <div class="reveal mt-14">
-      <h2 class="font-serif text-2xl font-semibold text-ink-900 dark:text-white">{t.cv.fullDocument}</h2>
-      <div class="mt-6 overflow-hidden rounded-2xl border border-ink-200/70 shadow-lg dark:border-ink-800">
-        <object data={cvFile} type="application/pdf" class="h-[80vh] w-full">
-          <div class="flex flex-col items-center justify-center gap-4 p-12 text-center">
-            <p class="text-ink-600 dark:text-ink-300">{t.cv.pdfFallback}</p>
-            <a href={cvFile} download class="btn btn-primary"><Icon name="download" class="h-4 w-4" /> {t.cv.downloadCV}</a>
-          </div>
-        </object>
-      </div>
-    </div>
-  </section>
+    </section>
+  )}
 </BaseLayout>

@@ -33,9 +33,15 @@ links:
     url: "#"
   - id: "linkedin"
     label: "LinkedIn"
-    handle: "Profile"
-    url: "#"
+    handle: "mcfalconrodriguez"
+    url: "https://www.linkedin.com/in/mcfalconrodriguez"
   - id: "email"
     label: "Email"
     handle: "mariacaridadfalconrodriguez@gmail.com"
     url: "mailto:mariacaridadfalconrodriguez@gmail.com"
+
+# Curriculum vitae per language. Set `available: true` once the PDF is ready;
+# the nav link and download buttons will then reappear.
+cv:
+  available: false
+  file: "/cv-maria-caridad-falcon-rodriguez-en.pdf"

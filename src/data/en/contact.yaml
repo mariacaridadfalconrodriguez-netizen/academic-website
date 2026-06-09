@@ -13,4 +13,4 @@ channels:
   - { label: "ORCID", value: "0000-0001-6741-6500", url: "https://orcid.org/0000-0001-6741-6500", icon: "orcid" }
   - { label: "Google Scholar", value: "View profile", url: "#", icon: "scholar" }
   - { label: "ResearchGate", value: "View profile", url: "#", icon: "researchgate" }
-  - { label: "LinkedIn", value: "View profile", url: "#", icon: "linkedin" }
+  - { label: "LinkedIn", value: "mcfalconrodriguez", url: "https://www.linkedin.com/in/mcfalconrodriguez", icon: "linkedin" }

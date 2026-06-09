@@ -9,7 +9,10 @@ interface Props {
   class?: string;
 }
 const { lang, variant = 'compact', class: className = '' } = Astro.props;
-const links = getContent(lang).profile.links;
+// Only show profiles that have a real, personalized link (skip placeholders like "#").
+const links = getContent(lang).profile.links.filter(
+  (l: { url?: string }) => l.url && l.url !== '#'
+);
 
 const iconFor: Record<string, string> = {
   orcid: 'orcid',

@@ -140,6 +140,8 @@ export const ui = {
       fullDocument: 'Documento completo',
       pdfFallback: 'Tu navegador no puede mostrar el PDF incrustado.',
       downloadCV: 'Descargar el CV',
+      comingSoonTitle: 'Currículum disponible pronto',
+      comingSoonText: 'El currículum estará disponible para su descarga en español e inglés muy pronto.',
     },
     contact: {
       eyebrow: 'Contacto',
@@ -288,6 +290,8 @@ export const ui = {
       fullDocument: 'Full document',
       pdfFallback: 'Your browser cannot display the embedded PDF.',
       downloadCV: 'Download the CV',
+      comingSoonTitle: 'CV available soon',
+      comingSoonText: 'The curriculum vitae will be available to download in Spanish and English very soon.',
     },
     contact: {
       eyebrow: 'Contact',
