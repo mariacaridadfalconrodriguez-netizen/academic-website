@@ -44,6 +44,9 @@ export const ui = {
       ctaText: 'Doy la bienvenida a colaboraciones de investigación, dirección de tesis e invitaciones a conferencias en gestión turística, sostenibilidad y desarrollo regional.',
       startConversation: 'Iniciar una conversación',
       readPublications: 'Leer publicaciones',
+      newsEyebrow: 'Novedades',
+      newsTitle: 'Me hace ilusión compartir',
+      allNews: 'Todas las noticias',
     },
     about: {
       eyebrow: 'Sobre mí',
@@ -204,6 +207,9 @@ export const ui = {
       ctaText: 'I welcome research partnerships, graduate supervision and speaking invitations in tourism management, sustainability and regional development.',
       startConversation: 'Start a conversation',
       readPublications: 'Read publications',
+      newsEyebrow: 'Latest',
+      newsTitle: 'Glad to share',
+      allNews: 'All news',
     },
     about: {
       eyebrow: 'About',

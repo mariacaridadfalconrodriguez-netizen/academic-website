@@ -15,11 +15,21 @@ export function getStaticPaths() {
 const lang = Astro.params.lang as Lang;
 const c = getContent(lang);
 const t = useTranslations(lang);
-const { profile, about, research, publications } = c;
+const { profile, about, research, publications, news } = c;
 const cvAvailable = profile.cv?.available === true;
 
 const featuredAreas = research.areas.slice(0, 3);
 const selected = publications.articles.slice(0, 3);
+
+const latestNews = [...(news.items ?? [])]
+  .sort((a, b) => String(b.date ?? '').localeCompare(String(a.date ?? '')))[0];
+const newsLocale = lang === 'es' ? 'es-ES' : 'en-GB';
+function formatNewsDate(value: string) {
+  const d = new Date(value);
+  return isNaN(d.getTime())
+    ? value
+    : d.toLocaleDateString(newsLocale, { year: 'numeric', month: 'long', day: 'numeric' });
+}
 ---
 <BaseLayout lang={lang}>
   <!-- Hero -->
@@ -85,6 +95,46 @@ const selected = publications.articles.slice(0, 3);
       ))}
     </div>
   </section>
+
+  <!-- Latest news highlight -->
+  {latestNews && (
+    <section class="container-page py-12">
+      <div class="reveal relative overflow-hidden rounded-3xl border border-accent-200/60 bg-gradient-to-br from-accent-50 to-white p-8 dark:border-accent-800/50 dark:from-accent-950/40 dark:to-ink-950 sm:p-10">
+        <div class="pointer-events-none absolute -right-20 -top-20 h-60 w-60 rounded-full bg-accent-300/25 blur-3xl dark:bg-accent-700/20"></div>
+        <div class="pointer-events-none absolute -bottom-20 -left-20 h-52 w-52 rounded-full bg-gold-400/15 blur-3xl"></div>
+        <div class="relative grid gap-8 lg:grid-cols-2 lg:items-center">
+          <div>
+            <span class="inline-flex items-center gap-2 rounded-full bg-accent-600/10 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-accent-700 dark:bg-accent-400/10 dark:text-accent-300">
+              <Icon name="spark" class="h-4 w-4" /> {t.home.newsEyebrow}
+            </span>
+            <p class="mt-4 eyebrow">{t.home.newsTitle}</p>
+            <h2 class="mt-2 font-serif text-2xl font-semibold leading-snug text-ink-900 dark:text-white sm:text-3xl">{latestNews.title}</h2>
+            <p class="mt-3 flex items-center gap-2 text-sm text-ink-500 dark:text-ink-400"><Icon name="calendar" class="h-4 w-4 text-accent-500" /> {formatNewsDate(latestNews.date)}</p>
+            <p class="mt-4 leading-relaxed text-ink-600 dark:text-ink-300">{latestNews.summary}</p>
+            <div class="mt-6 flex flex-wrap gap-3">
+              <a href={link(lang, '/news')} class="btn btn-primary">{t.home.allNews} <Icon name="arrow" class="h-4 w-4" /></a>
+              {latestNews.link && (
+                <a href={latestNews.link} target="_blank" rel="noopener noreferrer" class="btn btn-ghost">{latestNews.linkLabel || t.news.readMore} <Icon name="external" class="h-4 w-4" /></a>
+              )}
+            </div>
+          </div>
+          {latestNews.video && (
+            <div class="aspect-video overflow-hidden rounded-2xl border border-ink-200/70 shadow-lg dark:border-ink-800">
+              <iframe
+                class="h-full w-full"
+                src={`https://www.youtube.com/embed/${latestNews.video}`}
+                title={latestNews.title}
+                loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Research summary -->
   <section class="container-page py-12">
