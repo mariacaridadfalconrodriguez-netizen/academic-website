@@ -1,0 +1,33 @@
+# ---------------------------------------------------------------------------
+# News (English).
+#
+# To add a news item, copy a block inside `items` (most recent on top). Fields:
+#   date     -> date in YYYY-MM-DD format
+#   title    -> headline
+#   summary  -> summary text
+#   link     -> (optional) external link, e.g. a LinkedIn post
+#   linkLabel-> (optional) link button label
+#   video    -> (optional) YouTube video ID (the part after "?v=" or "/embed/")
+#   tags     -> (optional) list of tags
+# ---------------------------------------------------------------------------
+intro: >-
+  Recent updates, activities and highlights.
+
+items:
+  - date: "2026-06-13"
+    title: "Mentored team wins the Aqua-IA challenge at VIU Techathon 2026"
+    summary: >-
+      I am proud to share that team VOLTHA-IS, which I had the privilege of
+      mentoring, won the Aqua-IA challenge at the second edition of the VIU
+      Techathon. Their project, Blue Switch, proposes a climate-intelligence
+      layer that dynamically optimises AI compute workloads through predictive
+      models, shifting them toward moments with cleaner energy or lower thermal
+      stress. A fully serverless, low-latency solution that can reduce cloud
+      operating costs and improve the sustainability of critical infrastructure.
+    link: "https://www.linkedin.com/posts/mcfalconrodriguez_viu-techathon-2026-equipo-voltha-is-demo-share-7471488214764027904-xfCF/"
+    linkLabel: "View the LinkedIn post"
+    video: "hSMBxioWNyc"
+    tags:
+      - "Mentoring"
+      - "Artificial Intelligence"
+      - "Sustainability"

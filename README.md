@@ -78,7 +78,26 @@ with comments. After saving, the site rebuilds automatically when you push.
 | `projects.yaml` | Funded projects and research stays |
 | `awards.yaml` | Awards / milestones timeline |
 | `testimonials.yaml` | Testimonials |
+| `news.yaml` | News / updates (with optional link and YouTube video) |
 | `contact.yaml` | Contact details and channels |
+
+### Adding a news item
+
+Edit `src/data/<lang>/news.yaml` and add a block under `items` (most recent on
+top). Available fields:
+
+```yaml
+- date: "2026-06-13"          # YYYY-MM-DD
+  title: "Headline"
+  summary: "Short description."
+  link: "https://…"           # optional external link (e.g. a LinkedIn post)
+  linkLabel: "View the post"   # optional button text
+  video: "hSMBxioWNyc"        # optional YouTube video ID (after ?v= or /embed/)
+  tags: ["Tag A", "Tag B"]    # optional
+```
+
+The YouTube `video` field takes only the **video ID**, e.g. for
+`https://www.youtube.com/watch?v=hSMBxioWNyc` use `hSMBxioWNyc`.
 
 ### Updating the portrait or CV
 

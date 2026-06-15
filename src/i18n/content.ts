@@ -14,6 +14,7 @@ import enSupervision from '../data/en/supervision.yaml';
 import enProjects from '../data/en/projects.yaml';
 import enAwards from '../data/en/awards.yaml';
 import enTestimonials from '../data/en/testimonials.yaml';
+import enNews from '../data/en/news.yaml';
 import enContact from '../data/en/contact.yaml';
 
 import esSite from '../data/es/site.yaml';
@@ -28,6 +29,7 @@ import esSupervision from '../data/es/supervision.yaml';
 import esProjects from '../data/es/projects.yaml';
 import esAwards from '../data/es/awards.yaml';
 import esTestimonials from '../data/es/testimonials.yaml';
+import esNews from '../data/es/news.yaml';
 import esContact from '../data/es/contact.yaml';
 
 const content = {
@@ -44,6 +46,7 @@ const content = {
     projects: enProjects,
     awards: enAwards,
     testimonials: enTestimonials,
+    news: enNews,
     contact: enContact,
   },
   es: {
@@ -59,6 +62,7 @@ const content = {
     projects: esProjects,
     awards: esAwards,
     testimonials: esTestimonials,
+    news: esNews,
     contact: esContact,
   },
 };

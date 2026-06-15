@@ -21,6 +21,7 @@ ogImage: "/profile.png"
 
 nav:
   - { label: "Inicio", href: "/" }
+  - { label: "Noticias", href: "/news" }
   - { label: "Sobre mí", href: "/about" }
   - { label: "Investigación", href: "/research" }
   - { label: "Publicaciones", href: "/publications" }

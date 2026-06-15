@@ -131,6 +131,14 @@ export const ui = {
       loading: 'Cargando testimonios…',
       moderated: 'Los testimonios se revisan antes de publicarse.',
     },
+    news: {
+      eyebrow: 'Actualidad',
+      title: 'Noticias',
+      intro: 'Novedades, participaciones y reconocimientos recientes.',
+      readMore: 'Leer más',
+      watchVideo: 'Ver vídeo',
+      empty: 'Próximamente habrá novedades.',
+    },
     cv: {
       eyebrow: 'Currículum Vítae',
       title: 'Currículum Vítae',
@@ -282,6 +290,14 @@ export const ui = {
       submit: 'Submit a testimonial',
       loading: 'Loading testimonials…',
       moderated: 'Testimonials are reviewed before being published.',
+    },
+    news: {
+      eyebrow: 'Latest',
+      title: 'News',
+      intro: 'Recent updates, activities and highlights.',
+      readMore: 'Read more',
+      watchVideo: 'Watch video',
+      empty: 'News coming soon.',
     },
     cv: {
       eyebrow: 'Curriculum Vitae',

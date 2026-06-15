@@ -1,0 +1,35 @@
+# ---------------------------------------------------------------------------
+# Noticias (español).
+#
+# Para añadir una noticia, copia un bloque dentro de `items` (la más reciente
+# arriba). Campos:
+#   date     -> fecha en formato AAAA-MM-DD
+#   title    -> titular
+#   summary  -> texto del resumen
+#   link     -> (opcional) enlace externo, p. ej. una publicación de LinkedIn
+#   linkLabel-> (opcional) texto del botón del enlace
+#   video    -> (opcional) ID del vídeo de YouTube (la parte tras "?v=" o "/embed/")
+#   tags     -> (opcional) lista de etiquetas
+# ---------------------------------------------------------------------------
+intro: >-
+  Novedades, participaciones y reconocimientos recientes.
+
+items:
+  - date: "2026-06-13"
+    title: "Equipo mentorizado, ganador del reto Aqua-IA en el Techathon VIU 2026"
+    summary: >-
+      Con enorme orgullo: el equipo VOLTHA-IS, al que tuve el privilegio de
+      mentorizar, ha resultado ganador del reto Aqua-IA en la segunda edición del
+      Techathon VIU. Su proyecto, Blue Switch, plantea una capa de inteligencia
+      climática capaz de optimizar dinámicamente las cargas de computación de IA
+      mediante modelos predictivos, desplazándolas hacia momentos con energía más
+      limpia o menor estrés térmico. Una solución 100% serverless y de baja
+      latencia que puede reducir costes operativos en la nube y mejorar la
+      sostenibilidad de infraestructuras críticas.
+    link: "https://www.linkedin.com/posts/mcfalconrodriguez_viu-techathon-2026-equipo-voltha-is-demo-share-7471488214764027904-xfCF/"
+    linkLabel: "Ver publicación en LinkedIn"
+    video: "hSMBxioWNyc"
+    tags:
+      - "Mentoría"
+      - "Inteligencia Artificial"
+      - "Sostenibilidad"
